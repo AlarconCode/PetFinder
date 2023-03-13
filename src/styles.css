@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --turquoise: #16697A;
+    --yellow: #FFA62B;
+    --light-turquoise: #82C0CC;
+    --p-color: #333;
+    --white: #fff;
+    --grey: #EDE7E3;
+    --p-size: 16px;
+    --h4-size: 18px;
+    --h3-size: 20px;
+    --h2-size: 25px;
+    --h1-size: 30px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
