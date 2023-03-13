@@ -7,12 +7,11 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 
 const routes: Routes = [
-  {path: 'loading', component: LoadingPageComponent },
-  {path: 'loading', redirectTo: 'bienvenida'},
+  {path: '', component: LoadingPageComponent },
+  {path: 'bienvenida', component: WelcomePageComponent},
   {path: 'home', component: HomePageComponent},
   {path: 'publicar', component: PostPageComponent},
   {path: 'mi-perfil', component: ProfilePageComponent},
-  {path: 'bienvenida', component: WelcomePageComponent}
 ];
 
 @NgModule({
