@@ -11,7 +11,7 @@ header {
     position: fixed;
 }
 
-#logo-yellow{
+.logo-yellow{
     width: 120px;
     height:30px;
 }
