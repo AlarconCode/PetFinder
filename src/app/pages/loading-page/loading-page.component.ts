@@ -12,7 +12,7 @@ export class LoadingPageComponent {
 
     // tiempo de la pagina de loading,envía a la pagina de bienvenida
     setTimeout(() => {
-      this.router.navigate(['bienvenida']);
+      this.router.navigate(['registro']);
     }, 5000);  //5s
 
   }
