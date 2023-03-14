@@ -1,21 +1,14 @@
-<!-- <div class="background-img-container"> -->
-    <img class="logo-petfinder" src="/PetFinder/src/assets/img/Logo-PetFinder-2colores-1200x900.png" alt="logo">
+<div class="background-img-container">
+    <img class="logo-petfinder" src="../../../assets/img/Logo-PetFinder-2colores-1200x900.png" alt="logo">
     <div class="blue-container">
-        <div class="first-text">
-            <h2>¿Buscas una mascota perdida?</h2>
-        </div>
-        <div class="button-link-feed">
-            <button type="reset" routerLink:"">Entra y encuentra tu mascota</button>
-        </div>
-        <div class="text-link-register">
-            <a routerLink:"">
-                <p>He encontrado una mascota perdida</p>
+        
+            <h2 class="first-text">¿Buscas una mascota perdida?</h2>
+            <button class="button-link-feed" type="reset" (click)="goHome()">Entra y encuentra tu mascota</button>
+            <a routerLink="registro" class="text-link-register" >
+                He encontrado una mascota perdida
             </a>
-        </div>
-        <div class="text-link-login">
-            <a routerLink:"">
-                <p>Ya tengo cuenta</p>
+            <a routerLink="login" class="text-link-login" >
+                Ya tengo cuenta
             </a>
-        </div>
     </div>
-    <!-- </div> -->
+    </div>
