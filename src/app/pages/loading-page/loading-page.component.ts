@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loading-page',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./loading-page.component.css']
 })
 export class LoadingPageComponent {
+
+  constructor(public router: Router) {
+
+    // tiempo de la pagina de loading,envía a la pagina de bienvenida
+    setTimeout(() => {
+      this.router.navigate(['bienvenida']);
+    }, 5000);  //5s
+
+  }
+
+
 
 }
