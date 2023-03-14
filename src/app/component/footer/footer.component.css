@@ -8,3 +8,11 @@ footer {
     justify-content: space-around;
     align-items: center;
 }
+
+.show {
+    display: flex;
+}
+
+.noShow {
+    display: none;
+}
