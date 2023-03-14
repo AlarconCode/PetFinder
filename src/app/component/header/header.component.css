@@ -5,8 +5,13 @@ header {
     background-color: var(--turquoise);
 
     display: flex;
-    justify-content:flex-end;
+    justify-content:center;
     align-items: center;
 
     position: fixed;
+}
+
+#logo-yellow{
+    width: 120px;
+    height:30px;
 }
