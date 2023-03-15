@@ -1,12 +1,13 @@
 .logo {
     align-self: center;
     margin-bottom: 60px;
-    width:100%
+    width:100%;
+    margin-top:45%;
     
 }
 
 form {
-    margin: 25% auto;
+    margin: 0 auto;
     width: 75%;
 }
 
