@@ -14,8 +14,8 @@ const routes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'publicar', component: PostPageComponent},
   {path: 'mi-perfil', component: ProfilePageComponent},
-  {path: 'registro', component: RegisterPageComponent},
-  {path: 'login', component: LoginPageComponent}
+  {path: 'login', component: LoginPageComponent },
+  {path: 'registro', component: RegisterPageComponent }
 ];
 
 @NgModule({
