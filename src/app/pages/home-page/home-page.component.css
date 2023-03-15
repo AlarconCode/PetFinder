@@ -1,0 +1,70 @@
+.container-feed {
+    margin: 60px 0 100px 0;
+}
+
+.cardPost-container {
+    margin-top: 20px;
+}
+
+
+.imgCard {
+    width: 100%;
+}
+
+.headerCard {
+    margin: 0 auto;
+    width: 85%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--turquoise);
+}
+
+.user {
+    /* border: solid violet; */
+    min-width: 200px;
+    width: 80%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    column-gap: 10px;
+    
+}
+
+.avatarUser {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: var(--turquoise);
+}
+
+.nameUser {
+    font-size: var(--p-size);
+    color: var(--text);
+    margin-top: 35px;
+    align-self: flex-end;
+}
+
+.mainCard {
+    margin: 0 auto;
+    width: 85%;
+    padding-top: 10px;
+}
+
+.commentUser {
+    font-size: var(--p-size);
+    color: var(--text);
+}
+
+.place {
+    font-size: var(--p-size);
+    color: var(--text);
+    margin-top: 10px;
+}
+
+span {
+    font-size: var(--p-size);
+    color: var(--turquoise);
+    font-weight: bold;
+}

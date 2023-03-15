@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoadingPageComponent } from './pages/loading-page/loading-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'registro', component: RegisterPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'perfil', component: PublicProfilePageComponent},
+  {path: 'contacto', component: ContactPageComponent}
 ];
 
 @NgModule({
