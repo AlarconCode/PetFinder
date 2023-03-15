@@ -1,13 +1,9 @@
 .container-feed {
-    margin: 60px 0 100px 0;
+    margin-bottom: 95px;
 }
-
-.cardPost-container {
-    margin-top: 20px;
-}
-
 
 .imgCard {
+    margin-top: 55px;
     width: 100%;
 }
 
