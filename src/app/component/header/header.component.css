@@ -6,10 +6,11 @@ header {
 
     display: flex;
     justify-content:center;
+    align-items: center;
 
     position: fixed;
 }
 
 .logo-yellow{
-    width:30%;
+    width:35%;
 }
