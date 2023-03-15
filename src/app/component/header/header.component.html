@@ -1,5 +1,5 @@
-<header class="header" *ngIf="router.url != '/home'">
+<header class="header" *ngIf="router.url != '/' && router.url != '/bienvenida'">
     
-  <img class="logo-yellow" src="../../../assets/img/logo-yellow.png" alt="Logotipo PetFinder Amarillo">
+  <img *ngIf="router.url != '/login'" class="logo-yellow" src="../../../assets/img/logo-yellow.png" alt="Logotipo PetFinder Amarillo">
     
 </header>
