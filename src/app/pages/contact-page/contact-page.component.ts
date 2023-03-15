@@ -23,12 +23,13 @@ export class ContactPageComponent {
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
+      },
+      color: '#16697A'
     })
     
     Toast.fire({
       icon: 'success',
-      title: 'Envido correctamente'
+      title: 'Enviado correctamente'
     })
 
     this.router.navigateByUrl('/home')
