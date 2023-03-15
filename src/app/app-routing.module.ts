@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'mi-perfil', component: ProfilePageComponent},
   {path: 'registro', component: RegisterPageComponent},
   {path: 'login', component: LoginPageComponent},
-  {path: 'perfil', component: PublicProfilePageComponent}
+  {path: 'perfil', component: PublicProfilePageComponent},
   {path: 'contacto', component: ContactPageComponent}
 ];
 
