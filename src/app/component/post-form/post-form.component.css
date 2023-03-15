@@ -1,0 +1,34 @@
+
+.post-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+form {
+    margin: 40% auto;
+    width: 75%;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid var(--yellow);
+    background-color: var(--grey);
+    color: var(--text);
+    font-size: var(--p-size);
+    text-align: center;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+.postButton {
+    margin: 0 auto !important;
+    background-color: var(--turquoise);
+    width: 70%;
+    color: var(--grey);
+    font-size: var(--h4-size);
+}
