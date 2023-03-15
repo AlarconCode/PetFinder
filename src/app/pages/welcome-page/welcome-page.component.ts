@@ -17,5 +17,13 @@ export class WelcomePageComponent {
     this.router.navigateByUrl("home")
   }
 
+  goLogin(){
+    this.router.navigateByUrl("login")
+  }
+
+  goRegister(){
+    this.router.navigateByUrl("registro")
+  }
+
 
 }
