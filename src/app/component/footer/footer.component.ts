@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent {
 
+  
   constructor( public router: Router) {
+
+    console.log(this.router);
+    
     
   }
 
