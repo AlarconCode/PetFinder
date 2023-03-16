@@ -42,6 +42,11 @@
     align-self: flex-end;
 }
 
+.nameUser:hover, .nameUser::selection {
+    color: var(--turquoise);
+    cursor: pointer;
+}
+
 .mainCard {
     margin: 0 auto;
     width: 85%;
