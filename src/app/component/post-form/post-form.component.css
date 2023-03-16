@@ -1,16 +1,29 @@
 
-form {
-    margin: 0 auto;
+.post-form {
+    margin: 45% auto;
     width: 75%;
+    height: 50vh;
 }
 
-input, textarea {
+input{
     padding: 10px;
     border: 1px solid var(--yellow);
     background-color: var(--grey);
     color: var(--text);
     font-size: var(--p-size);
     text-align: center;
+}
+
+textarea {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left:20px;
+    padding-right:20px;
+    border: 1px solid var(--yellow);
+    background-color: var(--grey);
+    color: var(--text);
+    font-size: var(--p-size);
+    text-align:start
 }
 
 .btnContainer {
