@@ -1,12 +1,4 @@
 
-.post-form-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-
 form {
     margin: 40% auto;
     width: 75%;
