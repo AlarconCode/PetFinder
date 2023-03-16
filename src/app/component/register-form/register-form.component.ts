@@ -8,13 +8,22 @@ import { Router } from '@angular/router';
 })
 export class RegisterFormComponent {
 
+  public urlCurrent:string
+
   constructor(private router:Router) {
 
+    this.urlCurrent = this.router.url
 
   }
 
   buttonRegister() {
     this.router.navigateByUrl('/home')
   }
+
+  buttonUpdateRegister() {
+    this.router.navigateByUrl('/home')
+  }
+
+
 
 }

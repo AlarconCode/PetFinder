@@ -15,7 +15,10 @@
     <div class="mb-3">
         <input type="text" class="form-control" id="formInput" placeholder="Teléfono">
     </div>
-    <div class="btnContainer">
+    <div class="btnContainer"*ngIf="urlCurrent === '/registro'">
         <button class="btn petButton" (click)="buttonRegister()">Registrarse</button>
+    </div>
+    <div class="btnContainer" *ngIf="urlCurrent === '/actualizar-registro' ">
+        <button class="btn petButton" (click)="buttonUpdateRegister()">Actualizar</button>
     </div>
 </form>
