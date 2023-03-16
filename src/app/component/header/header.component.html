@@ -1,5 +1,9 @@
 <header class="header" *ngIf="router.url != '/' && router.url != '/bienvenida'">
-    
+
   <img *ngIf="router.url != '/login'" class="logo-yellow" src="../../../assets/img/logo-yellow.png" alt="Logotipo PetFinder Amarillo">
+  <!-- <img src="../../../assets/icons/icon_toggle.svg" alt="icono para mostrar modal filtros" class="iconToggle"> -->
+  <div class="form-check form-switch">
+    <input class="form-check-input iconToggle" type="checkbox" role="switch" id="flexSwitchCheckDefault" value="{{status}}" (click)=goToFilter(toggle) #toggle>
+  </div>
     
 </header>

@@ -12,6 +12,15 @@ header {
     top:0;
 }
 
+.form-check {
+    position: absolute;
+    left: 85%;
+}
+
+.form-check-input:checked[type=checkbox] {
+    background-color: var(--yellow);
+}
+
 .logo-yellow{
     width:35%;
 }
