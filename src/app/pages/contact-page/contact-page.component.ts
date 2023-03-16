@@ -34,6 +34,5 @@ export class ContactPageComponent {
 
     this.router.navigateByUrl('/home')
 
-
   }
 }
