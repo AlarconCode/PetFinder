@@ -17,4 +17,8 @@ export class HomePageComponent {
     this.router.navigateByUrl('contacto')
   }
 
+  goToPublicProfile() {
+    this.router.navigateByUrl('perfil-publico')
+  }
+
 }
