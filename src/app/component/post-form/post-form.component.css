@@ -1,9 +1,6 @@
 
 
 .post-form {
-    display:flex;
-    justify-content: center;
-    align-items: center;
    margin-top: 25%;
     width: 75%;
     height: 50vh;
