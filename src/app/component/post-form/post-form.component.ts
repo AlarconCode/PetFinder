@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-form',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./post-form.component.css']
 })
 export class PostFormComponent {
+
+  constructor(public router: Router){}
 
 }

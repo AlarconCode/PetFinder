@@ -7,10 +7,11 @@
         <input type="text" class="form-control" id="urlInput" placeholder="url imagen">
     </div>
     <div class="mb-3">
-        <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8" placeholder="Descripción sobre la mascota encontrads"></textarea>
+        <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8" placeholder="Descripción sobre la mascota encontrada"></textarea>
     </div>
     <div class="btnContainer">
-        <button class="btn postButton">Publicar</button>
+        <button class="btn postButton" *ngIf="router.url === '/publicar'">Publicar</button>
+        <button class="btn postButton" *ngIf="router.url === '/actualizar-publicacion'">Actualizar</button>
     </div>
     </form>
 
