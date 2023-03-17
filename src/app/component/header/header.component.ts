@@ -13,13 +13,10 @@ export class HeaderComponent {
   constructor( public router: Router) {
     this.status = false
   }
-
-  goToFilter(toggle:HTMLInputElement) {
-
-    if (toggle.value)
-    this.status = !this.status
-    console.log(toggle);
+  
+  goToFilter() {
     
+    this.status = !this.status
 
   }
 
