@@ -18,6 +18,7 @@ import { PostFormComponent } from './component/post-form/post-form.component';
 import { PublicProfilePageComponent } from './pages/public-profile-page/public-profile-page.component';
 import { UpdateRegisterPageComponent } from './pages/update-register-page/update-register-page.component';
 import { RegisterFormComponent } from './component/register-form/register-form.component';
+import { CardPostComponent } from './component/card-post/card-post.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RegisterFormComponent } from './component/register-form/register-form.c
     PostFormComponent,
     PublicProfilePageComponent,
     UpdateRegisterPageComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    CardPostComponent
   ],
   imports: [
     BrowserModule,

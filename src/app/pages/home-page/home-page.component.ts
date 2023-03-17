@@ -8,17 +8,5 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent {
 
-  constructor(private router:Router) {
-
-
-  }
-
-  goToContactForm() {
-    this.router.navigateByUrl('contacto')
-  }
-
-  goToPublicProfile() {
-    this.router.navigateByUrl('perfil-publico')
-  }
 
 }
