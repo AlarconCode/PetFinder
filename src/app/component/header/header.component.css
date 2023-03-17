@@ -38,3 +38,29 @@ div.my_modal select {
     width: 85%;
     margin: 0 auto;
 }
+
+.input-group {
+    margin: 15px auto;
+    width: 85%;
+}
+
+.form-outline {
+    width: 75%;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-outline input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.input-group button {
+    width: 25%;
+    background-color: var(--turquoise);
+}
+
+.input-group button img {
+    width: 35%;
+    object-fit: cover;
+}
