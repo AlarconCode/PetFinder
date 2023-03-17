@@ -1,5 +1,7 @@
 
     <form class="post-form">
+        <h1 class="title" *ngIf="router.url === '/publicar'">Publicar</h1>
+        <h1 class="title" *ngIf="router.url === '/actualizar-publicacion'">Actualizar</h1>
     <div class="mb-3">
         <input type="text" class="form-control" id="locationInput" placeholder="Localización">
     </div>
@@ -10,8 +12,8 @@
         <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8" placeholder="Descripción sobre la mascota encontrada"></textarea>
     </div>
     <div class="btnContainer">
-        <button class="btn postButton" *ngIf="router.url === '/publicar'">Publicar</button>
-        <button class="btn postButton" *ngIf="router.url === '/actualizar-publicacion'">Actualizar</button>
+        <button type="reset" class="btn postButton" *ngIf="router.url === '/publicar'">Publicar</button>
+        <button type="reset" class="btn postButton" *ngIf="router.url === '/actualizar-publicacion'">Actualizar</button>
         
     </div>
     </form>
