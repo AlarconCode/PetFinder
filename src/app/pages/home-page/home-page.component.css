@@ -2,8 +2,12 @@
     margin-bottom: 95px;
 }
 
+.cardPost-container {
+    margin-bottom: 20px;
+}
+
 .imgCard {
-    margin-top: 55px;
+    /* margin-top: 55px; */
     width: 100%;
 }
 
