@@ -1,5 +1,8 @@
 header {
     width: 100%;
+    position: fixed;
+    top:0;
+    z-index: 10;
 }
 
 div.menu {
@@ -9,8 +12,6 @@ div.menu {
     display: flex;
     justify-content:center;
     align-items: center;
-    position: fixed;
-    top:0;
 }
 
 .logo-yellow{
@@ -28,6 +29,7 @@ div.menu {
 
 
 div.my_modal{
+    opacity: 0.8;
     background-color: var(--grey);
     width: 100%;
     padding: 80px 0 20px 0;
