@@ -15,6 +15,7 @@ export class CardPostComponent {
   public card:CardPost
   public currentUrl:string
   public view:boolean
+  public found:boolean
   constructor(private router:Router, public postCardService:PostCardService) {
 
     this.arrCardsExample = postCardService.cards
@@ -77,6 +78,25 @@ export class CardPostComponent {
 
   editPost() {
     this.router.navigateByUrl('/actualizar-publicacion')
+  }
+
+  checkFoundPost() {
+    Swal.fire({
+      title: '¿Quieres marcarlo como encontrado?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('¡Encontrado!', '', 'success')
+        this.found = true
+      } else if (result.isDenied) {
+        Swal.fire('No hay cambios', '', 'info')
+        this.found = false
+      }
+    })
   }
 
 }
