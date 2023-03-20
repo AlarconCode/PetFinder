@@ -1,35 +1,34 @@
-<div class="container-feed">
-    <div class="cardPost-container">
-        <img src="../../../assets/img/perro-triste.jpg" alt="Perro triste abandonado" class="imgCard">
+<div *ngIf="currentUrl === '/home'" class="container-feed">
+    
+    <div  *ngIf="arrCardsExample.length > 0" class="cardPost-container">
+        
+        <ng-container *ngFor="let cardPost of arrCardsExample">
+
+        <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCard">
+        
         <div class="headerCard">
             <div class="user">
-                <img src="../../../assets/img/avatar-user-default.svg" alt="avatar del usuario" class="avatarUser">
-                <p class="nameUser">Susana Romero</p>
+                <img src="{{cardPost.imgUser}}" alt="avatar del usuario" class="avatarUser">
+                <p class="nameUser">{{cardPost.userName}}</p>
             </div>
             <img src="../../../assets/icons/icon-contact-form.svg" alt="icono para contactar" (click)="goToContactForm()">
         </div>
+        
         <div class="mainCard">
             <div class="commentUser">
-                Perro encontrado en la calle, parece abandonado.
+                {{cardPost.comment}}
             </div>
-            <div class="place"><span>Lugar: </span>El Egido, Almería</div>
+            <div class="place"><span>Lugar: </span>{{cardPost.place}}</div>
         </div>
-    </div>
-    <div class="cardPost-container">
-        <img src="../../../assets/img/grupo--gatos-callejeros.jpg" alt="Perro triste abandonado" class="imgCard">
-        <div class="headerCard">
-            <div class="user">
-                <img src="../../../assets/img/avatar-user-default.svg" alt="" class="avatarUser">
-                <p class="nameUser">Raquel Sánchez</p>
-            </div>
-            <img src="../../../assets/icons/icon-contact-form.svg" alt="icono para contactar" (click)="goToContactForm()">
-        </div>
-        <div class="mainCard">
-            <div class="commentUser">
-                Gatos encontrados por las calle.
-            </div>
-            <div class="place"><span>Lugar: </span>Roquetas de Mar, Almería</div>
-        </div>
+
+        </ng-container>
+    
     </div>
     
+</div>
+
+<div *ngIf="currentUrl === '/mi-perfil'" class="container-posts">
+    <ng-container *ngFor="let cardPost of arrCardsExample">
+        <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCard">
+    </ng-container>
 </div>

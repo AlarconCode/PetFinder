@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CardPost } from 'src/app/models/card-post';
+import { PostCardService } from 'src/app/shared/post-card.service';
 
 @Component({
   selector: 'app-card-post',
@@ -8,8 +10,15 @@ import { Router } from '@angular/router';
 })
 export class CardPostComponent {
 
-  constructor(private router:Router) {
+  public arrCardsExample:CardPost[]
+  public currentUrl:string
+  constructor(private router:Router, public postCardService:PostCardService) {
 
+    this.arrCardsExample = postCardService.cards
+    console.log(this.router.url);
+    this.currentUrl = this.router.url
+    console.log(this.currentUrl);
+    
   }
 
   goToContactForm() {
