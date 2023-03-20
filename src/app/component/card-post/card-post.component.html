@@ -33,16 +33,24 @@
         
         <ng-container *ngFor="let cardPost of arrCardsExample">
 
+       <div class="image-post">
         <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCard">
+        <div class="icons-post">
+            <i class="fa-solid fa-rotate-left icon" (click)="changeBack()"></i>
+            <i class="fa-solid fa-trash-can icon" (click)="deletePost()"></i>
+            <i class="fa-solid fa-pen-to-square icon" (click)="editPost()"></i>
+            <!-- <img src="../../../assets/icons/icon_back_white.svg" alt="icono para contactar" (click)="changeBack()" class="icon"> -->
+            <!-- <img src="../../../assets/icons/icon_trash_white.svg" alt="icono para contactar" (click)="deletePost()" class="icon"> -->
+            <!-- <img src="../../../assets/icons/icon_edit_white.svg" alt="icono para contactar" (click)="editPost()" class="icon"> -->
+        </div>
+       </div>
         
         <div class="headerCard">
             <div class="user">
                 <img src="{{cardPost.imgUser}}" alt="avatar del usuario" class="avatarUser">
                 <p class="nameUser">{{cardPost.userName}}</p>
             </div>
-            <img src="../../../assets/icons/back.svg" alt="icono para contactar" (click)="changeBack()">
-            <img src="../../../assets/icons/trash-can-regular.svg" alt="icono para contactar" (click)="deletePost()">
-            <img src="../../../assets/icons/icon-contact-form.svg" alt="icono para contactar" (click)="goToContactForm()">
+            <img src="../../../assets/icons/icon-contact-form.svg" alt="icono para contactar" (click)="goToContactForm()" class="icon">
         </div>
         
         <div class="mainCard">
