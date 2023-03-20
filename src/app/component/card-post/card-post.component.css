@@ -35,7 +35,7 @@
     
 }
 
-.avatarUser {
+div.user img {
     width: 40px;
     height: 40px;
     border-radius: 100%;
@@ -75,4 +75,20 @@ span {
     font-size: var(--p-size);
     color: var(--turquoise);
     font-weight: bold;
+}
+
+.container-post{
+    width: 100%;
+}
+
+.imgCardMyProfile {
+    padding: 2px;
+    width: 33.3333%;
+    height: 125px;
+    object-fit: cover;
+}
+
+.headerCard img {
+    width: 20px;
+    margin-left: 20px;
 }

@@ -25,6 +25,10 @@ export class PostCardService {
         return arrCard
   }
 
+  getCard(id_cardPost:number) {
+    return  this.cards.find(card => card.id_cardPost = id_cardPost)
+  }
+
 
 
 }

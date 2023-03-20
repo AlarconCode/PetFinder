@@ -27,8 +27,39 @@
     
 </div>
 
-<div *ngIf="currentUrl === '/mi-perfil'" class="container-posts">
-    <ng-container *ngFor="let cardPost of arrCardsExample">
+<div *ngIf="currentUrl === '/mi-perfil' && view" class="container-feed">
+    
+    <div  *ngIf="arrCardsExample.length > 0" class="cardPost-container">
+        
+        <ng-container *ngFor="let cardPost of arrCardsExample">
+
         <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCard">
+        
+        <div class="headerCard">
+            <div class="user">
+                <img src="{{cardPost.imgUser}}" alt="avatar del usuario" class="avatarUser">
+                <p class="nameUser">{{cardPost.userName}}</p>
+            </div>
+            <img src="../../../assets/icons/back.svg" alt="icono para contactar" (click)="changeBack()">
+            <img src="../../../assets/icons/trash-can-regular.svg" alt="icono para contactar" (click)="deletePost()">
+            <img src="../../../assets/icons/icon-contact-form.svg" alt="icono para contactar" (click)="goToContactForm()">
+        </div>
+        
+        <div class="mainCard">
+            <div class="commentUser">
+                {{cardPost.comment}}
+            </div>
+            <div class="place"><span>Lugar: </span>{{cardPost.place}}</div>
+        </div>
+
+        </ng-container>
+    
+    </div>
+    
+</div>
+
+<div *ngIf="currentUrl === '/mi-perfil' && !view" class="container-posts">
+    <ng-container *ngFor="let cardPost of arrCardsExample">
+        <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCardMyProfile" (click)="changeView(cardPost.id_cardPost)">
     </ng-container>
 </div>
