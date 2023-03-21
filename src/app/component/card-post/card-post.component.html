@@ -7,15 +7,15 @@
             <div class="image-post">
                 <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCard">
                 <div class="icons-post">
+                    <i class="fa-regular fa-circle-xmark icon" (click)="closeBigCard()" *ngIf="currentUrl === '/mi-perfil'"></i>
                     <i class="fa-regular fa-circle-check icon" (click)="checkFoundPost(cardPost.id_cardPost)"></i>
-                    <i class="fa-solid fa-rotate-left icon" (click)="changeBack()" *ngIf="currentUrl === '/mi-perfil'"></i>
                     <i class="fa-solid fa-trash-can icon" (click)="deletePost()"></i>
                     <i class="fa-solid fa-pen-to-square icon" (click)="editPost()"></i>
                 </div>
                 <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found && cardPost.id_cardPost === elementFound.id_cardPost" class="encontrado">    
             </div>
         
-        <div class="headerCard">
+        <div [ngClass]="{'headerCard':currentUrl === '/home', 'headerCard-my-profile':currentUrl === '/mi-perfil'}">
             <div class="user">
                 <img src="{{cardPost.imgUser}}" alt="avatar del usuario" class="avatarUser">
                 <p class="nameUser">{{cardPost.userName}}</p>

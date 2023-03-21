@@ -23,6 +23,10 @@
     border-bottom: 1px solid var(--turquoise);
 }
 
+.headerCard-my-profile {
+    display: none;
+}
+
 .user {
     min-width: 200px;
     width: 80%;
@@ -105,7 +109,6 @@ span {
 
 .icon:hover {
     color: var(--yellow);
-    font-size: var(--h2-size);
 }
 
 .encontrado {
