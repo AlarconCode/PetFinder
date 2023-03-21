@@ -12,7 +12,7 @@ div.menu {
     height: 55px;
     background-color: var(--turquoise); */
     display: flex;
-    justify-content:flex-start;
+    justify-content:space-around;
     align-items: center;
     height: 55px;
     background-color: var(--turquoise);
@@ -21,14 +21,14 @@ div.menu {
 }
 
 .logo-yellow{
-    width:35%;
+ height: 50%;
     align-self: center;
 }
 
-.form-check {
+/* .form-check {
     position: absolute;
     left: 85%;
-}
+} */
 
 .form-check-input:checked[type=checkbox] {
     background-color: var(--yellow);
