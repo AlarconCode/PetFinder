@@ -20,4 +20,8 @@ export class HeaderComponent {
 
   }
 
+  goToWelcome() {
+    this.router.navigateByUrl('/bienvenida')
+  }
+
 }
