@@ -2,14 +2,15 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 55px;
+    z-index: 10;
 }
 
 div.menu {
-    background-color: var(--turquoise);
     display: flex;
     justify-content:center;
     align-items: center;
+    height: 55px;
+    background-color: var(--turquoise);
 }
 
 .logo-yellow{
@@ -27,7 +28,7 @@ div.menu {
 
 
 div.my_modal{
-    opacity: 0.8;
+    opacity: 0.9;
     background-color: var(--grey);
     width: 100%;
     padding: 80px 0 20px 0;
