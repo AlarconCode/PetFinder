@@ -33,3 +33,11 @@ input {
     color: var(--grey);
     font-size: var(--h4-size);
 }
+
+.icon-container{
+    
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 70px;
+    
+}
