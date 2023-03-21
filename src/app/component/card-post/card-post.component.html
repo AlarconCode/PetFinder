@@ -7,12 +7,12 @@
             <div class="image-post">
                 <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCard">
                 <div class="icons-post">
-                    <i class="fa-regular fa-circle-check icon" (click)="checkFoundPost()"></i>
-                    <i class="fa-solid fa-rotate-left icon" (click)="changeBack()"></i>
+                    <i class="fa-regular fa-circle-check icon" (click)="checkFoundPost(cardPost.id_cardPost)"></i>
+                    <i class="fa-solid fa-rotate-left icon" (click)="changeBack()" *ngIf="currentUrl === '/mi-perfil'"></i>
                     <i class="fa-solid fa-trash-can icon" (click)="deletePost()"></i>
                     <i class="fa-solid fa-pen-to-square icon" (click)="editPost()"></i>
                 </div>
-                <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found" class="encontrado">    
+                <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found && cardPost.id_cardPost === elementFound.id_cardPost" class="encontrado">    
             </div>
         
         <div class="headerCard">
@@ -38,6 +38,9 @@
 
 <div *ngIf="currentUrl === '/mi-perfil' && !view" class="container-posts">
     <ng-container *ngFor="let cardPost of arrCardsExample">
-        <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCardMyProfile" (click)="changeView(cardPost.id_cardPost)">
+        <div class="container-img-post">
+            <img src="{{cardPost.imgPet}}" alt="{{cardPost.comment}}" class="imgCardMyProfile" (click)="changeView(cardPost.id_cardPost)">
+            <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found && cardPost.id_cardPost === elementFound.id_cardPost" class="encontrado-mini">
+        </div>
     </ng-container>
 </div>

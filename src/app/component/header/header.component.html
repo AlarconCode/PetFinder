@@ -1,13 +1,14 @@
 <header *ngIf="router.url != '/' && router.url != '/bienvenida'">
   
   <div class="menu">
-    <img *ngIf="router.url != '/login'" class="logo-yellow" src="../../../assets/img/logo-yellow.png" alt="Logotipo PetFinder Amarillo">
+    <img *ngIf="router.url != '/login'" class="logo-yellow" src="../../../assets/img/Logo-PetFinder-naranja-1700x370.png" alt="Logotipo PetFinder Amarillo" (click)="goToWelcome()">
     <div class="form-check form-switch">
       <input class="form-check-input iconToggle" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="goToFilter()">
     </div>
   </div>
   
   <div class="my_modal" *ngIf="status">
+    
     <select class="form-select" aria-label="Default select example">
       <option selected>Elige Provincia</option>
       <option value="Álava/Araba">Álava/Araba</option>
@@ -63,14 +64,19 @@
       <option value="Zamora">Zamora</option>
       <option value="Zaragoza">Zaragoza</option>
     </select>
+    
     <div class="input-group">
+    
       <div class="form-outline">
         <input type="search" id="form1" class="form-control" placeholder="Buscar Usuario"/>
       </div>
+    
       <button type="button" class="btn btn-primary">
         <img src="../../../assets/icons/lupa.svg" alt="">
       </button>
+    
     </div>
+
   </div>
 
 </header>

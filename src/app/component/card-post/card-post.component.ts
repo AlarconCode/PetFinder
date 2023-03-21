@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CardPost } from 'src/app/models/card-post';
-import { PostCardService } from 'src/app/shared/post-card.service';
+import { CardPost } from '../../models/card-post';
+import { PostCardService } from '../../shared/post-card.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -16,6 +16,7 @@ export class CardPostComponent {
   public currentUrl:string
   public view:boolean
   public found:boolean
+  public elementFound:CardPost
   constructor(private router:Router, public postCardService:PostCardService) {
 
     this.arrCardsExample = postCardService.cards
@@ -80,7 +81,9 @@ export class CardPostComponent {
     this.router.navigateByUrl('/actualizar-publicacion')
   }
 
-  checkFoundPost() {
+  checkFoundPost(id_cardPost:number) {
+    
+    
     Swal.fire({
       title: '¿Quieres marcarlo como encontrado?',
       showDenyButton: true,
@@ -91,7 +94,9 @@ export class CardPostComponent {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire('¡Encontrado!', '', 'success')
-        this.found = true
+        this.elementFound = this.arrCardsExample.find(e => e.id_cardPost === id_cardPost)
+        this.elementFound.id_cardPost === id_cardPost ? this.found = true : this.found = false
+        
       } else if (result.isDenied) {
         Swal.fire('No hay cambios', '', 'info')
         this.found = false
