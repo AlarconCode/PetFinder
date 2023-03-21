@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CardPost } from 'src/app/models/card-post';
-import { PostCardService } from 'src/app/shared/post-card.service';
+import { CardPost } from '../../models/card-post';
+import { PostCardService } from '../../shared/post-card.service';
 import Swal from 'sweetalert2'
 
 @Component({
