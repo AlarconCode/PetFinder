@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
+  email:string;
+  password:string;
   constructor(private router:Router) {
-
-
   }
 
-  afterLogin() {
+  login(){
+    console.log(this.email);
+    console.log(this.password);
     this.router.navigateByUrl('/home')
   }
 
