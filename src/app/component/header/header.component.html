@@ -1,8 +1,8 @@
 <header *ngIf="router.url != '/' && router.url != '/bienvenida'">
   
   <div class="menu">
-    <div class="login-boton">
-    <a (click)="goToLogin()">Log-in</a>
+    <div  *ngIf="router.url != '/login'" class="login-boton">
+    <a  (click)="goToLogin()">Log-in</a>
     </div>
     <img *ngIf="router.url != '/login'" class="logo-yellow" src="../../../assets/img/Logo-PetFinder-naranja-1700x370.png" alt="Logotipo PetFinder Amarillo" (click)="goToWelcome()">
     <div class="form-check form-switch" >
