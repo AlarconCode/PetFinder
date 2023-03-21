@@ -24,4 +24,11 @@ export class HeaderComponent {
     this.router.navigateByUrl('/bienvenida')
   }
 
+  goToLogin(){
+    this.router.navigateByUrl('/login')
+  }
+
 }
+
+
+

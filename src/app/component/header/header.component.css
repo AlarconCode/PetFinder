@@ -6,15 +6,23 @@ header {
 }
 
 div.menu {
-    display: flex;
+    /* display: flex;
     justify-content:center;
     align-items: center;
     height: 55px;
+    background-color: var(--turquoise); */
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    height: 55px;
     background-color: var(--turquoise);
+    gap:55px;
+    padding-left: 20px;
 }
 
 .logo-yellow{
     width:35%;
+    align-self: center;
 }
 
 .form-check {
@@ -64,4 +72,9 @@ div.my_modal select {
 .input-group button img {
     width: 35%;
     object-fit: cover;
+}
+
+.login-boton{
+    color: var(--yellow);
+ 
 }
