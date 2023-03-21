@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { Location } from '@angular/common';
+
 
 
 @Component({
@@ -10,7 +12,11 @@ import Swal from 'sweetalert2'
 })
 export class ContactPageComponent {
 
-  constructor(private router:Router) {}
+  constructor(public router: Router, private location:Location){}
+
+  goBack(){
+    this.location.back();
+  }
 
 
   buttonSendMailContact() {

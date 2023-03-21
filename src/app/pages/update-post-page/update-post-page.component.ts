@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-update-post-page',
@@ -8,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class UpdatePostPageComponent {
 
-  constructor (private router:Router){}
+  constructor(public router: Router, private location:Location){}
+
+  goBack(){
+    this.location.back();
+  }
 
 }
