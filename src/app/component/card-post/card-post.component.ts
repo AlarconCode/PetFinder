@@ -17,12 +17,12 @@ export class CardPostComponent {
   public view:boolean
   public found:boolean
   public elementFound:CardPost
+  public viewHeaderPost:boolean
   constructor(private router:Router, public postCardService:PostCardService) {
 
     this.arrCardsExample = postCardService.cards
-    console.log(this.router.url);
     this.currentUrl = this.router.url
-    console.log(this.currentUrl);
+    this.viewHeaderPost = true
     
   }
 
@@ -35,7 +35,7 @@ export class CardPostComponent {
     this.arrCardsExample = this.arrCardsExample.filter(e => e.id_cardPost == id_cardPost )   
   }
 
-  changeBack() {
+  closeBigCard() {
     this.view = !this.view
     this.arrCardsExample = this.postCardService.cards
   }
@@ -83,22 +83,30 @@ export class CardPostComponent {
 
   checkFoundPost(id_cardPost:number) {
     
-    
     Swal.fire({
       title: '¿Quieres marcarlo como encontrado?',
       showDenyButton: true,
-      showCancelButton: true,
       confirmButtonText: 'Si',
       denyButtonText: `No`,
+      confirmButtonColor : '#16697A',
+      denyButtonColor: '#FFA62B'
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        Swal.fire('¡Encontrado!', '', 'success')
+        Swal.fire({
+          title: 'No hay cambios',
+          icon: 'success',
+          confirmButtonColor : '#16697A'
+        })
         this.elementFound = this.arrCardsExample.find(e => e.id_cardPost === id_cardPost)
         this.elementFound.id_cardPost === id_cardPost ? this.found = true : this.found = false
         
       } else if (result.isDenied) {
-        Swal.fire('No hay cambios', '', 'info')
+        Swal.fire({
+          title: 'No hay cambios',
+          icon: 'info',
+          confirmButtonColor : '#16697A'
+        })
         this.found = false
       }
     })
