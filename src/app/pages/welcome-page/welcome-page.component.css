@@ -1,11 +1,10 @@
 .background-img-container{
-    background-image: url(../../../assets/img/welcome-background.jpg);
+    background-image: url(../../../assets/img/mujer-abrazando-perros-welcome-page.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment:fixed;
     height: 100vh;
     width: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content:flex-end;
@@ -15,57 +14,47 @@
 .logo-petfinder{
     width:70px;
     position: absolute;
-    top:10px;
-    left:20px;
-
+    top: 20px;
+    left: 20px;
 }
 
 .blue-container{
-    background-color: var(--turquoise);
-    height: 40vh;
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    border-radius: 15px 15px 0px 0px;
-    gap:10px;
+    padding: 20px;
+    background-color: var(--turquoise);
+    height: 35vh;
+    width: 100%;
+    border-radius: 25px 25px 0px 0px;
     position:fixed;
     bottom: 0;
-    /* margin-top:20px; */
 }
 
 .first-text{
     color: var(--white);
-    margin-top: 2vh;
+    text-align: center;
 }
 
 .button-link-feed{
-    margin-top: 3.5vh;
-    margin-bottom: 1.5vh;
-
-}
-
-.button-link-feed{
+    width: 80%;
     background-color: var(--yellow);
     color:var(--white);
     font-size: var(--h4-size);
-    border-radius: 7px 7px 7px 7px;
+    border-radius: 8px;
     padding:10px 10px 10px 10px;
-    width: 350px;
-    border:none;
-    
+    border:none;    
 }
 
 .text-link-register{
     color:var(--yellow);
     font-size: var(--h4-size);
-    margin-bottom: 1.5vh;
     text-decoration: none;
 }
 
 .text-link-login{
     color:var(--white);
-    margin-bottom: 7vh;
     text-decoration: none;
+    font-size: var(--p-size);
 }
