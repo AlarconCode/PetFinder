@@ -8,17 +8,14 @@ import { Location } from '@angular/common';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-<<<<<<< HEAD
   email:string;
   password:string;
-  constructor(private router:Router) {
-=======
+  
   
   constructor(public router: Router, private location:Location){}
 
   goBack(){
     this.location.back();
->>>>>>> main
   }
 
   login(){
