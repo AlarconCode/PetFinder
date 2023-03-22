@@ -10,10 +10,16 @@ import Swal from 'sweetalert2'
 })
 export class HeaderComponent {
 
+  public currentUrl:string
   public status:boolean
+<<<<<<< HEAD
   constructor( public router: Router, private userService:UserService) 
   {
     this.status = false
+=======
+  constructor( public router:Router) {
+    this.status = false    
+>>>>>>> e076bc6754c2be821822bdcff8f0eb09e9106add
   }
   
   goToFilter() {

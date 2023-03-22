@@ -25,15 +25,14 @@ div.menu {
     align-self: center;
 }
 
-/* .form-check {
-    position: absolute;
-    left: 85%;
-} */
 
 .form-check-input:checked[type=checkbox] {
     background-color: var(--yellow);
 }
 
+.close-myModal {
+    display: none;
+}
 
 div.my_modal{
     opacity: 0.9;
