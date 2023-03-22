@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-login-page',
@@ -11,26 +12,24 @@ import { User } from 'src/app/models/user';
 })
 export class LoginPageComponent {
 
-  logueado:boolean;
-  // user= User;
-  // email:string;
-  // password:string;
-  
- 
-  constructor(private router: Router, private location:Location)  // private authService:authService
+  public user = User;
+
+
+
+  constructor(private router: Router, private location: Location, public userService: UserService)  // private authService:authService
   {
-this.logueado = true;
-// this.logueado = false;
+    this.userService.user;
+    this.userService.logueado;
   }
 
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
 
-  login(){
-    console.log(this.logueado);
-    if(this.logueado == true){
+  login(passwordInput: HTMLInputElement, emailInput: HTMLInputElement) {
+    let user: User = new User(0, "", passwordInput.value, emailInput.value, "", 0)
+    if(this.userService.login(user)==true){
       Swal.fire({
         position: 'center',
         icon: 'success',
@@ -39,7 +38,7 @@ this.logueado = true;
         timer: 1500
       });
       this.router.navigateByUrl('/home')
-    }else{
+    } else {
       Swal.fire({
         position: 'center',
         icon: 'error',
@@ -47,8 +46,9 @@ this.logueado = true;
         showConfirmButton: false,
         timer: 1500
       });
+
     }
-    
+
   }
 
 }

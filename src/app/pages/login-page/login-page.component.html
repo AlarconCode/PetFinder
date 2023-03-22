@@ -4,12 +4,12 @@
 <form>
     <img class="logo" src="../../../assets/img/Logo-PetFinder-2colores-1200x900.png" alt="Logotipo PetFinder">
     <div class="mb-3">
-        <input type="email" class="form-control" id="emailInput" placeholder="e-mail">
+        <input type="email" class="form-control" placeholder="e-mail" #emailInput>
     </div>
     <div class="mb-3">
-        <input type="password" class="form-control" id="passwordInput" placeholder="**********">
+        <input type="password" class="form-control"  placeholder="**********" #passwordInput>
     </div>
     <div class="btnContainer">
-        <button class="btn loginButton" (click)="login()">Login</button>
+        <button class="btn loginButton" (click)="login(passwordInput,emailInput)">Login</button>
     </div>
 </form>
