@@ -9,9 +9,10 @@ import Swal from 'sweetalert2'
 })
 export class HeaderComponent {
 
+  public currentUrl:string
   public status:boolean
-  constructor( public router: Router) {
-    this.status = false
+  constructor( public router:Router) {
+    this.status = false    
   }
   
   goToFilter() {

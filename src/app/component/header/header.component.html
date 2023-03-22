@@ -10,7 +10,7 @@
     </div>
   </div>
   
-  <div class="my_modal" *ngIf="status">
+  <div class="my_modal" *ngIf="status" [ngClass]="{'close-myModal':router.url === '/publicar' || router.url === '/contacto' || router.url === '/login'}">
     
     <select class="form-select" aria-label="Default select example">
       <option selected>Elige Provincia</option>
