@@ -19,6 +19,23 @@ export class UserService {
     }
     else {
       return this.logueado = false
-    }}
+    }
+  }
+
+  getUser() {
+    return this.user
+  }
+
+  estaLogueado() {
+    return this.logueado = true
+  }
+
+  logout() {
+    this.user=null;
+    return this.logueado = false
+  }
+
 
 }
+
+

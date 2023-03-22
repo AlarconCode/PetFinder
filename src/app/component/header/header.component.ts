@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/user.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -10,7 +11,8 @@ import Swal from 'sweetalert2'
 export class HeaderComponent {
 
   public status:boolean
-  constructor( public router: Router) {
+  constructor( public router: Router, private userService:UserService) 
+  {
     this.status = false
   }
   
@@ -25,6 +27,14 @@ export class HeaderComponent {
 
   goToLogin(){
     this.router.navigateByUrl('/login')
+  }
+
+  estaLogueado(){
+    return this.userService.estaLogueado();
+  }
+
+  logout(){
+    return this.userService.logout();
   }
 
 }

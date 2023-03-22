@@ -2,7 +2,8 @@
   
   <div class="menu">
     <div  *ngIf="router.url != '/login'" class="login-boton">
-    <a  (click)="goToLogin()">Log-in</a>
+    <a *ngIf="!estaLogueado()"routerLink="/login">Log-in</a>
+    <a *ngIf="estaLogueado()"(click)="logout()">Log-out</a>
     </div>
     <img *ngIf="router.url != '/login'" class="logo-yellow" src="../../../assets/img/Logo-PetFinder-naranja-1700x370.png" alt="Logotipo PetFinder Amarillo" (click)="goToWelcome()">
     <div class="form-check form-switch" >
