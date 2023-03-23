@@ -73,6 +73,12 @@ div.user img {
     margin-top: 10px;
 }
 
+.date {
+    font-size: var(--p-size);
+    color: var(--text);
+    margin-top: 10px;
+}
+
 span {
     font-size: var(--p-size);
     color: var(--turquoise);
