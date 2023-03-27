@@ -26,9 +26,10 @@ export class LoginPageComponent {
   }
   //Validaciones
   private buildForm() {
+    const minPassLength=8;
     this.loginForm = this.fb.group({
       email: [, [Validators.required, Validators.email]],
-      password: [, [Validators.required, Validators.minLength(8)]]
+      password: [, [Validators.required, Validators.minLength(minPassLength)]]
     })
   }
 

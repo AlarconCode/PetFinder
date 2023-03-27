@@ -19,6 +19,7 @@ import { PublicProfilePageComponent } from './pages/public-profile-page/public-p
 import { UpdateRegisterPageComponent } from './pages/update-register-page/update-register-page.component';
 import { RegisterFormComponent } from './component/register-form/register-form.component';
 import { CardPostComponent } from './component/card-post/card-post.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { CardPostComponent } from './component/card-post/card-post.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
