@@ -39,7 +39,7 @@ export class LoginPageComponent {
     this.userService.login(new User(0, "", this.user.password, this.user.email, "", 0))
       .subscribe((data: any) => {
         console.log(data)
-        if (data.result[0]) {
+        if (data.result[0].length != 0) {
           this.userService.logueado = true;
           this.userService.user = data.result[0]
           // this.user = data.result[0];
