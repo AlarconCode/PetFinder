@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,17 +12,16 @@ export class UserService {
   public user:User
   public logueado: boolean;
 
-  constructor(private http:HttpClient) {
-    this.url = `http://localhost:5000`
+  constructor(private http: HttpClient) {
     this.logueado = false;
     this.user = null;
+    this.url = `http://localhost:5000`
   }
 
   userRegister(user:User) {
 
     return this.http.post(this.url + '/users', user)
 
- 
   }
   updateUserData(user:User) {
 
@@ -29,13 +29,8 @@ export class UserService {
 
   }
 
-  login(user: User): boolean {
-    if (user) {
-      return this.logueado = true
-    }
-    else {
-      return this.logueado = false
-    }
+  login(user: User){
+    return this.http.post(this.url+"/login", user)
   }
 
   getUser() {
