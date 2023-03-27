@@ -1,15 +1,31 @@
-<a class="icon-container" >
+<a class="icon-container">
     <img id="icon-back" src="../../../assets/icons/icon-back-forms2.svg" alt="icono para ir al feed" (click)="goBack()">
 </a>
-<form>
+<form [formGroup]="loginForm">
     <img class="logo" src="../../../assets/img/Logo-PetFinder-2colores-1200x900.png" alt="Logotipo PetFinder">
+
     <div class="mb-3">
-        <input type="email" class="form-control" placeholder="e-mail" #emailInput>
+        <input type="email" class="form-control" placeholder="e-mail" id="formGroupExampleInput" formControlName="email"
+            [ngClass]="{'is-invalid': (loginForm.get('email').dirty || loginForm.get('email').touched) && !loginForm.get('email').valid}">
+        <!--  -->
+        <div *ngIf="!loginForm.get('email').valid" class="invalid-feedback">
+            <div *ngIf="loginForm.get('email').errors.required">Es obligatorio introducir e-mail</div>
+            <div *ngIf="loginForm.get('email').errors.email">E-mail no válido</div>
+        </div>
     </div>
+
     <div class="mb-3">
-        <input type="password" class="form-control"  placeholder="**********" #passwordInput>
+        <input type="password" class="form-control" placeholder="**********" id="formGroupExampleInput"
+            formControlName="password"
+            [ngClass]="{'is-invalid': (loginForm.get('password').dirty || loginForm.get('password').touched) && !loginForm.get('password').valid}">
+        <!--  -->
+        <div *ngIf="!loginForm.get('password').valid" class="invalid-feedback">
+            <div *ngIf="loginForm.get('password').errors.required">Es obligatorio introducir password</div>
+            <div *ngIf="loginForm.get('password').errors.minLength">El password debe 8 caracteres</div>
+        </div>
     </div>
+
     <div class="btnContainer">
-        <button class="btn loginButton" (click)="login(passwordInput,emailInput)">Login</button>
+        <button class="btn loginButton" (click)="login(password,email)" [disabled]="loginForm.invalid">Login</button>
     </div>
 </form>

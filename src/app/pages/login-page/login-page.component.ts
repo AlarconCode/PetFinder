@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/shared/user.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -12,11 +13,12 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class LoginPageComponent {
 
-  public user = User;
+  public user : User;
+  public loginForm:FormGroup;
 
 
 
-  constructor(private router: Router, private location: Location, public userService: UserService)  // private authService:authService
+  constructor(private router: Router, private location: Location, public userService: UserService, private fb:FormBuilder)  // private authService:authService
   {
     this.userService.user;
     this.userService.logueado;
