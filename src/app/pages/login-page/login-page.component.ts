@@ -38,19 +38,11 @@ export class LoginPageComponent {
 
     this.userService.login(new User(0, "", this.user.password, this.user.email, "", 0))
       .subscribe((data: any) => {
-        if (data.result == 'Los datos no existen') {
-          console.log(data.result);
-          Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Usuario no existe',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        } else {
+        console.log(data)
+        if (data) {
           this.userService.logueado = true;
-          this.user = data.resulta[0];
-          // this.userService.setUserLogging(this.user)
+          this.userService.user = data[0]
+          // this.user = data.result[0];
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -59,6 +51,16 @@ export class LoginPageComponent {
             timer: 1500
           });
           this.router.navigateByUrl('/home')
+          console.log(this.userService.logueado)
+        } else {
+          console.log(data.result);
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Usuario no existe',
+            showConfirmButton: false,
+            timer: 1500
+          });
         }
       })
   }
