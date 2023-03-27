@@ -39,9 +39,9 @@ export class LoginPageComponent {
     this.userService.login(new User(0, "", this.user.password, this.user.email, "", 0))
       .subscribe((data: any) => {
         console.log(data)
-        if (data) {
+        if (data.result[0]) {
           this.userService.logueado = true;
-          this.userService.user = data[0]
+          this.userService.user = data.result[0]
           // this.user = data.result[0];
           Swal.fire({
             position: 'center',
