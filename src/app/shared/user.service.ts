@@ -37,15 +37,6 @@ export class UserService {
     return this.user
   }
 
-  estaLogueado() {
-    return this.logueado = true
-  }
-
-  logout() {
-    this.user=null;
-    return this.logueado = false
-  }
-
 
 }
 

@@ -10,35 +10,38 @@ import Swal from 'sweetalert2'
 })
 export class HeaderComponent {
 
-  public currentUrl:string
-  public status:boolean
-  constructor( public router: Router, private userService:UserService) 
-  {
+  public currentUrl: string
+  public status: boolean
+  constructor(public router: Router, private userService: UserService) {
     this.status = false
   }
-  
+
   goToFilter() {
     this.status = !this.status
   }
-  
+
 
   goToWelcome() {
     this.router.navigateByUrl('/bienvenida')
   }
 
-  goToLogin(){
+  goToLogin() {
     this.router.navigateByUrl('/login')
   }
 
-  estaLogueado(){
-    return this.userService.estaLogueado();
+  estaLogueado(): boolean {
+    return this.userService.logueado
   }
 
-  logout(){
-    return this.userService.logout();
+  logout() {
+    console.log(this.userService.logueado)
+    this.userService.logueado = false;
+    this.userService.user = null;
+    Swal.fire({title:'Te deslogueaste correctamente', confirmButtonColor : '#16697A'});
   }
-
 }
+
+
 
 
 

@@ -73,7 +73,8 @@ div.my_modal select {
     object-fit: cover;
 }
 
-.login-boton{
+.login-boton a{
     color: var(--yellow);
+    text-decoration: none;
  
 }
