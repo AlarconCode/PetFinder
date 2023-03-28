@@ -36,7 +36,7 @@ export class LoginPageComponent {
   login() {
     this.user = this.loginForm.value;
 
-    this.userService.login(new User(0, "", this.user.password, this.user.email, "", 0))
+    this.userService.login(new User(0, "", this.user.password, this.user.email, "", 0, ''))
       .subscribe((data: any) => {
         console.log(data)
         if (data.result[0].length != 0) {

@@ -19,6 +19,7 @@ export class RegisterFormComponent {
   constructor(private router:Router, private userService:UserService, private fb:FormBuilder) {
 
     this.urlCurrent = this.router.url
+    this.user = this.userService.user
     this.buildForm()
 
   }
@@ -43,7 +44,13 @@ export class RegisterFormComponent {
   }
 
   buttonUpdateRegister() {
-    this.router.navigateByUrl('/home')
+    
+    console.log(this.user);
+    
+    this.router.navigateByUrl('/mi-peril')
+    this.userService.updateUserData(this.userService.user)
+    .subscribe((data:any) => console.log(data)
+    )
   }
 
   private buildForm() {
