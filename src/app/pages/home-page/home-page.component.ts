@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/shared/user.service';
 import { CardPost } from '../../models/card-post';
 import { PostCardService } from '../../shared/post-card.service';
 
@@ -10,12 +12,34 @@ import { PostCardService } from '../../shared/post-card.service';
 })
 export class HomePageComponent {
 
-  public arrCardsExample:CardPost[]
-  constructor(public postCardService:PostCardService) {
+  public user: User;
+  public cards: CardPost[]
 
-    this.arrCardsExample = postCardService.getPostCardsExample()
+  constructor(public postCardService: PostCardService, private userService: UserService) {
+    this.cards = postCardService.cards;
+    // this.user = userService.user;
+  }
+
+  showAllCardPosts() {
+    this.postCardService.getCardPosts()
+      .subscribe((data: any) => {
+        this.cards.push(data.result[0])
+      })
+  }
+
+  showCardPostsFromUser(id_user: number) {
+    id_user = this.userService.user.id_user
+    if (this.userService.logueado == true) {
+      this.postCardService.getCardsFromUser(id_user)
+        .subscribe((data: any) => {
+          this.cards.push(data.result[0])
+        })
+    }
 
 
   }
-
 }
+
+
+
+
