@@ -10,12 +10,6 @@ import { PostCardService } from '../../shared/post-card.service';
 })
 export class HomePageComponent {
 
-  public arrCardsExample:CardPost[]
-  constructor(public postCardService:PostCardService) {
-
-    this.arrCardsExample = postCardService.getPostCardsExample()
-
-
-  }
+  constructor() {}
 
 }

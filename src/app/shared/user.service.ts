@@ -11,8 +11,10 @@ export class UserService {
   private url:string
   public user:User
   public logueado: boolean;
+  public arrUsers:User[]
 
   constructor(private http: HttpClient) {
+    this.arrUsers = []
     this.logueado = false;
     this.user = null;
     this.url = `http://localhost:5000`
@@ -30,12 +32,22 @@ export class UserService {
   }
 
   login(user: User){
-    return this.http.post(this.url+"/login", user)
+    return this.http.post(this.url + "/login", user)
+  }
+
+  getUsersApi() {
+    return this.http.get(this.url + '/users')
+  }
+
+  getUserByid(id_user:number) {
+    return this.http.get(this.url + `/users?id_user=${id_user}`)
   }
 
   getUser() {
     return this.user
   }
+
+
 
 
 }
