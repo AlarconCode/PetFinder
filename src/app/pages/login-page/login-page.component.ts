@@ -22,7 +22,11 @@ export class LoginPageComponent {
   }
   // Servicio para volver a la pagina de atras:
   goBack() {
-    this.location.back();
+    if (this.userService.logueado) {
+      this.location.back();
+    } else {
+      this.router.navigateByUrl('/home')
+    }
   }
   //Validaciones
   private buildForm() {

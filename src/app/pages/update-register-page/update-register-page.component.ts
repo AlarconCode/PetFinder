@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { UserService } from 'src/app/shared/user.service';
 
 
 @Component({
@@ -10,10 +11,15 @@ import { Location } from '@angular/common';
 })
 export class UpdateRegisterPageComponent {
 
-  constructor(public router: Router, private location:Location){}
+  constructor(public router: Router, private location:Location, private userService:UserService){}
 
   goBack(){
-    this.location.back();
+    if (this.userService.logueado) {
+      this.router.navigateByUrl('/mi-perfil')
+    } else {
+      this.router.navigateByUrl('/home')
+    }
+    
   }
 
 }

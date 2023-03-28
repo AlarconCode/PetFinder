@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,12 +9,15 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent {
 
-  
-  constructor( public router: Router) {
 
-    console.log(this.router);
-    
-    
+  constructor( public router: Router, private userService: UserService) {}
+
+  goToProfile() {
+    if (this.userService.logueado) {
+      this.router.navigateByUrl('/mi-perfil')
+    } else {
+      this.router.navigateByUrl('/registro')
+    }
   }
 
 }

@@ -31,14 +31,24 @@ export class RegisterFormComponent {
     .subscribe((data:any) => {
 
       console.log(data);
-      this.router.navigateByUrl('/home')
-      Swal.fire({
-        position: 'top',
-        icon: 'success',
-        title: 'registrado correctamente',
-        showConfirmButton: false,
-        timer: 1500
-      })
+      this.router.navigateByUrl('/login')
+      if(data.result.insertId != 0) {
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'registrado correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else {
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Error al registrarse',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
 
     })
   }
@@ -49,8 +59,26 @@ export class RegisterFormComponent {
     
     this.router.navigateByUrl('/mi-peril')
     this.userService.updateUserData(this.userService.user)
-    .subscribe((data:any) => console.log(data)
-    )
+    .subscribe((data:any) => {
+      console.log(data)
+      if(data.result.warningStatus == 0) {
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'Actualizado correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else {
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Error al actualizar',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    })
   }
 
   private buildForm() {

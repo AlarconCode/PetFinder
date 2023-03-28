@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/shared/user.service';
 
 @Component({
@@ -9,9 +10,9 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class ProfilePageComponent {
 
-  public user_image:string
+  public user:User
   constructor(private router:Router, private userService:UserService) {
-    this.user_image = this.userService.getUser().user_image
+    this.user = this.userService.getUser()
   }
 
   editUserData() {
