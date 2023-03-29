@@ -44,4 +44,8 @@ export class PostCardService {
   getCardsFromUser(id_user: number) {
     return this.http.get(this.url + "/posts/" + id_user)
   }
+  putCardPost(newCardPost:CardPost){
+    return this.http.put(this.url+"/posts",newCardPost)
+
+  }
 }
