@@ -35,8 +35,6 @@ export class HomePageComponent {
           this.cards.push(data.result[0])
         })
     }
-
-
   }
 }
 
