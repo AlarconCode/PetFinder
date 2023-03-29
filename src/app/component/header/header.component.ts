@@ -34,7 +34,6 @@ export class HeaderComponent {
   }
 
   logout() {
-    console.log(this.userService.logueado)
     this.userService.logueado = false;
     this.userService.user = null;
     Swal.fire({title:'Te deslogueaste correctamente', confirmButtonColor : '#16697A'});

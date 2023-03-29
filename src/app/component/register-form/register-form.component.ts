@@ -19,6 +19,7 @@ export class RegisterFormComponent {
   constructor(private router:Router, private userService:UserService, private fb:FormBuilder) {
 
     this.urlCurrent = this.router.url
+    this.user = this.userService.user
     this.buildForm()
 
   }
@@ -30,20 +31,54 @@ export class RegisterFormComponent {
     .subscribe((data:any) => {
 
       console.log(data);
-      this.router.navigateByUrl('/home')
-      Swal.fire({
-        position: 'top',
-        icon: 'success',
-        title: 'registrado correctamente',
-        showConfirmButton: false,
-        timer: 1500
-      })
+      this.router.navigateByUrl('/login')
+      if(data.result.insertId != 0) {
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'registrado correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else {
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Error al registrarse',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
 
     })
   }
 
   buttonUpdateRegister() {
-    this.router.navigateByUrl('/home')
+    
+    console.log(this.user);
+    
+    this.router.navigateByUrl('/mi-peril')
+    this.userService.updateUserData(this.userService.user)
+    .subscribe((data:any) => {
+      console.log(data)
+      if(data.result.warningStatus == 0) {
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'Actualizado correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else {
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Error al actualizar',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    })
   }
 
   private buildForm() {
