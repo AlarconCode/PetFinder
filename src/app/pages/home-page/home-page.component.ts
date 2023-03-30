@@ -23,7 +23,7 @@ export class HomePageComponent {
   showAllCardPosts() {
     this.postCardService.getCardPosts()
       .subscribe((data: any) => {
-        this.cards.push(data.result[0])
+        this.cards=data.result
       })
   }
 
@@ -32,7 +32,7 @@ export class HomePageComponent {
     if (this.userService.logueado == true) {
       this.postCardService.getCardsFromUser(id_user)
         .subscribe((data: any) => {
-          this.cards.push(data.result[0])
+          this.cards=data.result
         })
     }
   }
