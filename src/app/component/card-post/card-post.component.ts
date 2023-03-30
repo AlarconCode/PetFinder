@@ -32,7 +32,7 @@ export class CardPostComponent {
 
   changeView(id_cardPost:number) {
     this.view = !this.view
-    this.arrCardsExample = this.arrCardsExample.filter(e => e.id_cardPost == id_cardPost )   
+    this.arrCardsExample = this.arrCardsExample.filter(e => e.id_post == id_cardPost )   
   }
 
   closeBigCard() {
@@ -98,8 +98,8 @@ export class CardPostComponent {
           icon: 'success',
           confirmButtonColor : '#16697A'
         })
-        this.elementFound = this.arrCardsExample.find(e => e.id_cardPost === id_cardPost)
-        this.elementFound.id_cardPost === id_cardPost ? this.found = true : this.found = false
+        this.elementFound = this.arrCardsExample.find(e => e.id_post === id_cardPost)
+        this.elementFound.id_post === id_cardPost ? this.found = true : this.found = false
         
       } else if (result.isDenied) {
         Swal.fire({

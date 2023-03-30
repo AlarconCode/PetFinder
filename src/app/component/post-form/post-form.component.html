@@ -63,14 +63,16 @@
         <input type="date" class="form-control" id="dateInput" formControlName="post_date"
         [ngClass]="{'is-invalid': (postForm.get('post_date').dirty || postForm.get('post_date').touched) && !postForm.get('post_date').valid}">
         <div *ngIf="!postForm.get('post_date').valid" class="invalid-feedback">
-            <div *ngIf="router.url === '/publicar'" *ngIf="postForm.get('password').errors.required">Es obligatorio introducir la fecha</div>
+            <div *ngIf="router.url === '/publicar' && postForm.get('post_date').errors.required">Es obligatorio introducir la fecha</div>
         </div>
     </div>
     <div class="mb-3">
         <input type="text" class="form-control" id="urlInput" placeholder="url imagen" formControlName="url_post"
         [ngClass]="{'is-invalid': (postForm.get('url_post').dirty || postForm.get('url_post').touched) && !postForm.get('url_post').valid}">
         <div *ngIf="!postForm.get('url_post').valid" class="invalid-feedback">
-            <div *ngIf="router.url === '/publicar'" *ngIf="postForm.get('password').errors.required">Es obligatorio introducir la imagen</div>
+            <!-- <div *ngIf="router.url === '/publicar'" *ngIf="postForm.get('url_post').errors.required">Es obligatorio introducir la imagen</div> -->
+            <div *ngIf="router.url === '/publicar' && postForm.get('url_post').errors.required">Es obligatorio introducir la imagen</div>
+
         </div>
     </div>
     <div class="mb-3">
@@ -78,7 +80,7 @@
         [ngClass]="{'is-invalid': (postForm.get('description').dirty || postForm.get('description').touched) && !postForm.get('description').valid}">
         ></textarea>
         <div *ngIf="!postForm.get('description').valid" class="invalid-feedback">
-            <div *ngIf="router.url === '/publicar'" *ngIf="postForm.get('password').errors.required">Es obligatorio introducir descripcion</div>
+            <div *ngIf="router.url === '/publicar' && postForm.get('description').errors.required">Es obligatorio introducir descripcion</div>
         </div>
     </div>
     <div class="btnContainer">
