@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CardPost } from 'src/app/models/card-post';
 import { PostCardService } from 'src/app/shared/post-card.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-post-form',
@@ -14,19 +15,19 @@ export class PostFormComponent {
   public card: CardPost;
   public postForm: FormGroup;
 
-  constructor(public router: Router, public postCardService: PostCardService) {
+  constructor(public router: Router, public postCardService: PostCardService, public userService: UserService) {
 
   }
 
 
   //ACTUALIZAR
-  editCardPost() {
+  editCardPost(id_user) {
     this.card = this.postForm.value;
-    this.postCardService.putCardPost(new CardPost(0,0,this.card.imgPet,this.card.imgUser, this.card.userName, this.card.comment, this.card.place, this.card.post_date))
+    id_user=this.userService.getUser().id_user
+    this.postCardService.putCardPost(new CardPost(0,id_user,this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found))
       .subscribe((data: any) => {
         console.log(data)
-        this.postCardService.cards = data.result[0]
-
+        this.postCardService.cards = data.result
       });
   }
 }

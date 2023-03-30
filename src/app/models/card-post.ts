@@ -1,23 +1,23 @@
 export class CardPost {
 
-    public id_cardPost:number
+    public id_post:number
     public id_user:number
-    public imgPet:string
-    public imgUser:string
-    public userName:string
-    public comment:string
-    public place:string
+    public post_location:string
+    public url_post:string
+    public description: string
     public post_date:string
+    public found: boolean
 
-    constructor(id_cardPost:number, id_user:number, imgPet:string, imgUser:string, userName:string, comment:string, place:string, post_date:string) {
-        this.id_cardPost = id_cardPost
+    
+
+    constructor(id_post:number, id_user:number, post_location:string, url_post:string, description:string, post_date:string, found:boolean) {
+        this.id_post = id_post
         this.id_user = id_user
-        this.imgPet = imgPet
-        this.imgUser = imgUser
-        this.userName = userName
-        this.comment = comment
-        this.place = place
+        this.post_location=post_location
+        this.url_post=url_post
+        this.description=description
         this.post_date=post_date
+        this.found=found
     
     }
 }

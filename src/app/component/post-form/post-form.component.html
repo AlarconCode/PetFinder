@@ -3,7 +3,7 @@
         <h1 class="title" *ngIf="router.url === '/publicar'">Publicar</h1>
         <h1 class="title" *ngIf="router.url === '/actualizar-publicacion'">Actualizar</h1>
     <div class="mb-3">
-        <select class="form-select" id="locationInput" aria-label="Default select example" formControlName="location">
+        <select class="form-select" id="locationInput" aria-label="Default select example" formControlName="post_location">
             <option selected>Provincia</option>
             <option value="Álava/Araba">Álava/Araba</option>
             <option value="Albacete">Albacete</option>
@@ -60,16 +60,16 @@
           </select>
     </div>
     <div class="mb-3">
-        <input type="date" class="form-control" id="dateInput" formControlName="date">
+        <input type="date" class="form-control" id="dateInput" formControlName="post_date">
     </div>
     <div class="mb-3">
-        <input type="text" class="form-control" id="urlInput" placeholder="url imagen" formControlName="url">
+        <input type="text" class="form-control" id="urlInput" placeholder="url imagen" formControlName="url_post">
     </div>
     <div class="mb-3">
-        <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8" placeholder="Descripción sobre la mascota encontrada" formControlName="comment"></textarea>
+        <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8" placeholder="Descripción sobre la mascota encontrada" formControlName="description"></textarea>
     </div>
     <div class="btnContainer">
-        <button type="reset" class="btn postButton" *ngIf="router.url === '/publicar'">Publicar</button>
+        <button type="reset" class="btn postButton" *ngIf="router.url === '/publicar'" (click)="postCardPost()">Publicar</button>
         <button type="reset" class="btn postButton" *ngIf="router.url === '/actualizar-publicacion'" (click)="editCardPost()">Actualizar</button>
         
     </div>
