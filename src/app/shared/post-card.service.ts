@@ -46,6 +46,8 @@ export class PostCardService {
   }
   putCardPost(newCardPost:CardPost){
     return this.http.put(this.url+"/posts",newCardPost)
-
+  }
+  postCardPost(newCardPost:CardPost){
+    return this.http.put(this.url+"/posts",newCardPost)
   }
 }

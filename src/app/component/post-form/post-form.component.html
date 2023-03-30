@@ -60,17 +60,30 @@
           </select>
     </div>
     <div class="mb-3">
-        <input type="date" class="form-control" id="dateInput" formControlName="post_date">
+        <input type="date" class="form-control" id="dateInput" formControlName="post_date"
+        [ngClass]="{'is-invalid': (postForm.get('post_date').dirty || postForm.get('post_date').touched) && !postForm.get('post_date').valid}">
+        <div *ngIf="!postForm.get('post_date').valid" class="invalid-feedback">
+            <div *ngIf="router.url === '/publicar'" *ngIf="postForm.get('password').errors.required">Es obligatorio introducir la fecha</div>
+        </div>
     </div>
     <div class="mb-3">
-        <input type="text" class="form-control" id="urlInput" placeholder="url imagen" formControlName="url_post">
+        <input type="text" class="form-control" id="urlInput" placeholder="url imagen" formControlName="url_post"
+        [ngClass]="{'is-invalid': (postForm.get('url_post').dirty || postForm.get('url_post').touched) && !postForm.get('url_post').valid}">
+        <div *ngIf="!postForm.get('url_post').valid" class="invalid-feedback">
+            <div *ngIf="router.url === '/publicar'" *ngIf="postForm.get('password').errors.required">Es obligatorio introducir la imagen</div>
+        </div>
     </div>
     <div class="mb-3">
-        <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8" placeholder="Descripción sobre la mascota encontrada" formControlName="description"></textarea>
+        <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8" placeholder="Descripción sobre la mascota encontrada" formControlName="description"
+        [ngClass]="{'is-invalid': (postForm.get('description').dirty || postForm.get('description').touched) && !postForm.get('description').valid}">
+        ></textarea>
+        <div *ngIf="!postForm.get('description').valid" class="invalid-feedback">
+            <div *ngIf="router.url === '/publicar'" *ngIf="postForm.get('password').errors.required">Es obligatorio introducir descripcion</div>
+        </div>
     </div>
     <div class="btnContainer">
-        <button type="reset" class="btn postButton" *ngIf="router.url === '/publicar'" (click)="postCardPost()">Publicar</button>
-        <button type="reset" class="btn postButton" *ngIf="router.url === '/actualizar-publicacion'" (click)="editCardPost()">Actualizar</button>
+        <button type="reset" class="btn postButton" *ngIf="router.url === '/publicar'" (click)="postCardPost()" [disabled]="postForm.invalid">Publicar</button>
+        <button type="reset" class="btn postButton" *ngIf="router.url === '/actualizar-publicacion'" (click)="editCardPost()" [disabled]="postForm.invalid">Actualizar</button>
         
     </div>
     </form>
