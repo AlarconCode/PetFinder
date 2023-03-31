@@ -46,7 +46,7 @@ export class PostFormComponent {
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigateByUrl('/perfil')
+        this.router.navigateByUrl('/home')
       });
   }
  
@@ -66,7 +66,7 @@ export class PostFormComponent {
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigateByUrl('/perfil')
+        this.router.navigateByUrl('/home')
       });
   }
 }
