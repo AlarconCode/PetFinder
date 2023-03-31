@@ -1,6 +1,56 @@
 <div *ngIf="currentUrl === '/home' || currentUrl === '/mi-perfil' && view" class="container-feed">
+
+    <div class="image-post">
+        <img src="{{post.url_post}}" alt="{{post.description}}" class="imgCard">
+        <div class="icons-post">
+            <i class="fa-regular fa-circle-xmark icon" (click)="closeBigCard()" *ngIf="currentUrl === '/mi-perfil'"></i>
+            <i class="fa-regular fa-circle-check icon"></i>
+            <i class="fa-solid fa-trash-can icon" (click)="getIdPostToDelete(post.id_post)"></i>
+            <i class="fa-solid fa-pen-to-square icon" (click)="editPost()"></i>
+        </div>
+        <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found && post.id_post === elementFound.id_post" class="encontrado">    
+    </div>
     
-    <div  *ngIf="arrCardsPosts.length > 0" class="cardPost-container">
+    <div [ngClass]="{'headerCard':currentUrl === '/home', 'headerCard-my-profile':currentUrl === '/mi-perfil'}">
+        
+        <div class="user">
+            <img src="{{post.user_image}}" alt="avatar del usuario" class="avatarUser">
+            <p class="nameUser">{{post.user_name}}</p>
+        </div>
+        
+        <img src="../../../assets/icons/icon-contact-form.svg" alt="icono para contactar" (click)="goToContactForm()">
+        
+    </div>
+    
+    <div class="mainCard">
+        
+        <div class="commentUser">
+            {{post.description}}
+        </div>
+        
+        <div class="date"><span>Fecha: </span>{{post.post_date}}</div>
+        
+        <div class="place"><span>Lugar: </span>{{post.post_location}}</div>
+        
+    </div>
+    
+</div>
+
+    <div *ngIf="currentUrl === '/mi-perfil' && !view" class="container-posts">
+        <div class="container-img-post">
+            
+            <img src="{{post.url_post}}" alt="{{post.description}}" class="imgCardMyProfile" (click)="changeView()">
+            
+            <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found && card.id_post === elementFound.id_post"     class="encontrado-mini">
+            
+        </div>
+    </div>
+    
+    
+    
+    <!-- <div *ngIf="currentUrl === '/home' || currentUrl === '/mi-perfil' && view" class="container-feed">
+    
+    <div  *ngIf="arrCardsPosts.length > 0" class="card-container">
         
         <ng-container *ngFor="let cardPost of arrCardsPosts">
 
@@ -48,4 +98,4 @@
             <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found && cardPost.id_post === elementFound.id_post" class="encontrado-mini">
         </div>
     </ng-container>
-</div>
+</div> -->

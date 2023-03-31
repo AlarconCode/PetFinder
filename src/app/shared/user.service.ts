@@ -35,7 +35,7 @@ export class UserService {
     return this.http.post(this.url + "/login", user)
   }
 
-  getUsersApi() {
+  getUsers() {
     return this.http.get(this.url + '/users')
   }
 

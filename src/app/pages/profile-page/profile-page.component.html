@@ -18,8 +18,14 @@
 
     </div>
 
-    <div class="container-posts">
-        <app-card-post></app-card-post>
+    <div class="container-posts-mini">
+        
+        <ng-container *ngFor="let card of cardsUser">
+
+            <app-card-post [post] = 'card' (id_post) = 'deletePost($event)'></app-card-post>
+        
+        </ng-container>    
+    
     </div>
 
 </div>

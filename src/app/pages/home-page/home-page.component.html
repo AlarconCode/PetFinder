@@ -1,3 +1,8 @@
 <div class="main">
-    <app-card-post></app-card-post>
+        <ng-container *ngFor="let card of cards">
+
+            <app-card-post [post] = 'card'></app-card-post>
+        
+        </ng-container>
+
 </div>

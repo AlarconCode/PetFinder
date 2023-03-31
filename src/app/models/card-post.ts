@@ -7,8 +7,10 @@ export class CardPost {
     public description:string
     public post_date:string
     public found:string
+    public user_name:string
+    public user_image:string
     
-    constructor(id_post:number, id_user:number, post_location:string, url_post:string, description:string, post_date:string, found:string) {
+    constructor(id_post:number, id_user:number, post_location:string, url_post:string, description:string, post_date:string, found:string, user_name:string, user_image:string) {
         
         this.id_post = id_post
         this.id_user = id_user
@@ -17,6 +19,8 @@ export class CardPost {
         this.description = description
         this.post_date = post_date
         this.found = found
+        this.user_name = user_name
+        this.user_image = user_image
 
     }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CardPost } from '../../models/card-post';
 import { PostCardService } from '../../shared/post-card.service';
@@ -13,8 +13,6 @@ import { User } from 'src/app/models/user';
 })
 export class CardPostComponent {
 
-  public arrCardsPosts:CardPost[]
-  public arrUsers:User[]
   public card:CardPost
   public currentUrl:string
   public view:boolean
@@ -23,60 +21,38 @@ export class CardPostComponent {
   public viewHeaderPost:boolean
   public user:User
 
+  @Input() post :CardPost
+  @Output() id_post = new EventEmitter<number>
+
   constructor(private router:Router, public postCardService:PostCardService, public userService:UserService) {
 
-    this.arrCardsPosts = []
-    this.showCardsPosts()
-    this.arrUsers = []
-    this.getUsers()
-    console.log(this.arrCardsPosts)
     this.currentUrl = this.router.url
-    this.viewHeaderPost = true
+    this.viewHeaderPost = true    
     
   }
 
-  showCardsPosts() {
-    this.postCardService.getCardPosts()
-    .subscribe((data:any) => {
-      this.arrCardsPosts = data.result
-      console.log(this.arrCardsPosts);
-      
-    })
-  }
-
-  getUsers() {
-    this.userService.getUsersApi()
-    .subscribe((data:any) => {
-      this.arrUsers = data.result      
-    })
-  }
-
-  showUserById(id_user:number) {
-   return this.arrUsers.find(user => user.id_user === id_user)
-  }
+  getIdPostToDelete(value:number){
+    this.id_post.emit(value)
+  } 
     
 
   goToContactForm() {
     this.router.navigateByUrl('contacto')
   }
 
-  // changeView(id_cardPost:number) {
-  //   this.view = !this.view
-  //   this.arrCardsExample = this.arrCardsExample.filter(e => e.id_cardPost == id_cardPost )   
-  // }
+  changeView() {
+    this.view = !this.view
+  }
 
-  // closeBigCard() {
-  //   this.view = !this.view
-  //   this.arrCardsExample = this.postCardService.cards
-  // }
+  closeBigCard() {
+    this.view = !this.view
+  }
 
-  // deletePost() {
-    
-  // }
+  
 
-  // editPost() {
-  //   this.router.navigateByUrl('/actualizar-publicacion')
-  // }
+  editPost() {
+    this.router.navigateByUrl('/actualizar-publicacion')
+  }
 
   // checkFoundPost(id_cardPost:number) {
     

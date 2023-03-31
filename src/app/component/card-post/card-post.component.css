@@ -1,5 +1,5 @@
 .container-feed {
-    margin-bottom: 95px;
+    margin-bottom: 80px;
 }
 
 .cardPost-container {
@@ -86,9 +86,8 @@ span {
 }
 
 .container-posts{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    width: 33.33%;
+    display: inline-flex;
 }
 
 .imgCardMyProfile {
@@ -127,7 +126,6 @@ span {
 
 .container-img-post {
     position: relative;
-    width: 33.33%;
     padding: 2px;
 }
 
@@ -138,5 +136,6 @@ span {
     left:5px;
     opacity: .9;
 }
+
 
 
