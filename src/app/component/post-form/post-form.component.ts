@@ -5,6 +5,7 @@ import { CardPost } from 'src/app/models/card-post';
 import { User } from 'src/app/models/user';
 import { PostCardService } from 'src/app/shared/post-card.service';
 import { UserService } from 'src/app/shared/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-post-form',
@@ -24,6 +25,7 @@ export class PostFormComponent {
 //Validaciones
   private buildForm() {
     this.postForm= this.fb.group({
+      post_location:[, Validators.required],
       post_date: [, [Validators.required]],
       url_post: [, [Validators.required]],
       description: [, [Validators.required]]
@@ -37,8 +39,17 @@ export class PostFormComponent {
       .subscribe((data: any) => {
         console.log(data)
         this.postCardService.cards = data.result
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: '¡Publicado correctamente!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.router.navigateByUrl('/perfil')
       });
   }
+ 
  
   //ACTUALIZAR
   editCardPost(id_user) {
@@ -48,6 +59,14 @@ export class PostFormComponent {
       .subscribe((data: any) => {
         console.log(data)
         this.postCardService.cards = data.result
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: '¡Actualizada correctamente!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.router.navigateByUrl('/perfil')
       });
   }
 }

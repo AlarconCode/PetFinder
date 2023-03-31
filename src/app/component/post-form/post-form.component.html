@@ -3,7 +3,11 @@
         <h1 class="title" *ngIf="router.url === '/publicar'">Publicar</h1>
         <h1 class="title" *ngIf="router.url === '/actualizar-publicacion'">Actualizar</h1>
     <div class="mb-3">
-        <select class="form-select" id="locationInput" aria-label="Default select example" formControlName="post_location">
+        <select class="form-select" id="locationInput" aria-label="Default select example" formControlName="post_location"
+        [ngClass]="{'is-invalid': (postForm.get('post_location').dirty || postForm.get('post_location').touched) && !postForm.get('post_location').valid}">
+        <div *ngIf="!postForm.get('post_location').valid" class="invalid-feedback">
+            <div *ngIf="router.url === '/publicar' && postForm.get('post_location').errors.required">Introduce la provincia</div>
+        </div>>
             <option selected>Provincia</option>
             <option value="Álava/Araba">Álava/Araba</option>
             <option value="Albacete">Albacete</option>

@@ -48,6 +48,6 @@ export class PostCardService {
     return this.http.put(this.url+"/posts",newCardPost)
   }
   postCardPost(newCardPost:CardPost){
-    return this.http.put(this.url+"/posts",newCardPost)
+    return this.http.post(this.url+"/posts",newCardPost)
   }
 }
