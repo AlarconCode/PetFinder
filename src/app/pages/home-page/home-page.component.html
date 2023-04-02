@@ -1,7 +1,9 @@
 <div class="main">
         <ng-container *ngFor="let card of cards">
 
-            <app-card-post [post] = 'card'></app-card-post>
+            <app-card-post 
+            [post] = 'card' (id_post) = 'deletePost($event)'>
+            </app-card-post>
         
         </ng-container>
 

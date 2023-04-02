@@ -3,12 +3,13 @@
     <div class="image-post">
         <img src="{{post.url_post}}" alt="{{post.description}}" class="imgCard">
         <div class="icons-post">
-            <i class="fa-regular fa-circle-xmark icon" (click)="closeBigCard()" *ngIf="currentUrl === '/mi-perfil'"></i>
-            <i class="fa-regular fa-circle-check icon"></i>
+            <i class="fa-regular fa-circle-xmark icon" (click)="closeBigCard(this.view)" *ngIf="currentUrl === '/mi-perfil'"></i>
+            <i class="fa-regular fa-circle-check icon" 
+            (click)="checkFoundPost({found: 1, id_post:post.id_post})"></i>
             <i class="fa-solid fa-trash-can icon" (click)="getIdPostToDelete(post.id_post)"></i>
             <i class="fa-solid fa-pen-to-square icon" (click)="editPost()"></i>
         </div>
-        <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found && post.id_post === elementFound.id_post" class="encontrado">    
+        <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="post.found === 1" class="encontrado">    
     </div>
     
     <div [ngClass]="{'headerCard':currentUrl === '/home', 'headerCard-my-profile':currentUrl === '/mi-perfil'}">
@@ -39,9 +40,9 @@
     <div *ngIf="currentUrl === '/mi-perfil' && !view" class="container-posts">
         <div class="container-img-post">
             
-            <img src="{{post.url_post}}" alt="{{post.description}}" class="imgCardMyProfile" (click)="changeView()">
+            <img src="{{post.url_post}}" alt="{{post.description}}" class="imgCardMyProfile" (click)="getIdPostToChangeView(post.id_post)">
             
-            <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="found && card.id_post === elementFound.id_post"     class="encontrado-mini">
+            <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="post.found === 1" class="encontrado-mini" (click)="getIdPostToChangeView(post.id_post)">
             
         </div>
     </div>

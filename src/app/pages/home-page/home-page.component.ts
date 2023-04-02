@@ -26,4 +26,14 @@ export class HomePageComponent {
     })
   }
 
+  deletePost(id_post:number) {
+    
+    this.postCardService.deleteCardPost(id_post)
+    .subscribe((data:any) => {
+      console.log(data.result);
+      this.cards = this.cards.filter(card => card.id_post !== id_post)
+      
+    })
+  }
+
 }

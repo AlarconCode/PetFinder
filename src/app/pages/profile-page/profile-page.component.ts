@@ -19,14 +19,13 @@ export class ProfilePageComponent {
     this.showCardsByIdUser()
   }
 
-  showCardsByIdUser() {
+  showCardsByIdUser() :any{
     this.postCardService.getCardPostsByIdUser(this.user.id_user)
     .subscribe((data:any) => {
       this.cardsUser = data.result
+      return data.result
     })
-
   }
-
   
   deletePost(id_post:number) {
     console.log(id_post);
@@ -35,8 +34,16 @@ export class ProfilePageComponent {
     .subscribe((data:any) => {
       console.log(data.result);
       this.cardsUser = this.cardsUser.filter(card => card.id_post !== id_post)
-      
+      this.cardsUser = this.showCardsByIdUser()  
     })
+  }
+
+  changeView(id_post:number) {
+    this.cardsUser = this.cardsUser.filter(card => card.id_post === id_post)
+  }
+ 
+  closeView(view:boolean) {
+    this.cardsUser = this.showCardsByIdUser()
   }
 
   editUserData() {

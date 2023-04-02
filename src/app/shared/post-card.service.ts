@@ -23,6 +23,10 @@ export class PostCardService {
     return this.http.get(`${this.url}/posts?id_user=${id_user}`)
   }
 
+  updatePost(post:CardPost) {
+    return this.http.put(this.url + '/posts', post)
+  }
+
   deleteCardPost(id_post:number) {
     return this.http.delete(this.url + '/posts', {body:{id_post:id_post}})
   }

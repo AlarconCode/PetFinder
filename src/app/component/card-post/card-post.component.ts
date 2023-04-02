@@ -23,6 +23,9 @@ export class CardPostComponent {
 
   @Input() post :CardPost
   @Output() id_post = new EventEmitter<number>
+  @Output() change_view = new EventEmitter<number>
+  @Output() close_view = new EventEmitter<boolean>
+
 
   constructor(private router:Router, public postCardService:PostCardService, public userService:UserService) {
 
@@ -33,57 +36,59 @@ export class CardPostComponent {
 
   getIdPostToDelete(value:number){
     this.id_post.emit(value)
-  } 
-    
+  }
+
+  getIdPostToChangeView(value:number) {
+    this.change_view.emit(value)
+    this.view = !this.view
+  }
+  
+  closeBigCard(value:boolean) {
+    this.close_view.emit(value)
+    this.view = !this.view
+  }
 
   goToContactForm() {
     this.router.navigateByUrl('contacto')
   }
 
-  changeView() {
-    this.view = !this.view
-  }
-
-  closeBigCard() {
-    this.view = !this.view
-  }
-
-  
 
   editPost() {
     this.router.navigateByUrl('/actualizar-publicacion')
   }
 
-  // checkFoundPost(id_cardPost:number) {
-    
-  //   Swal.fire({
-  //     title: '¿Quieres marcarlo como encontrado?',
-  //     showDenyButton: true,
-  //     confirmButtonText: 'Si',
-  //     denyButtonText: `No`,
-  //     confirmButtonColor : '#16697A',
-  //     denyButtonColor: '#FFA62B'
-  //   }).then((result) => {
-  //     /* Read more about isConfirmed, isDenied below */
-  //     if (result.isConfirmed) {
-  //       Swal.fire({
-  //         title: 'No hay cambios',
-  //         icon: 'success',
-  //         confirmButtonColor : '#16697A'
-  //       })
-  //       this.elementFound = this.arrCardsExample.find(e => e.id_cardPost === id_cardPost)
-  //       this.elementFound.id_cardPost === id_cardPost ? this.found = true : this.found = false
+  checkFoundPost(post:CardPost) {
+    console.log(post.found);
+    this.postCardService.updatePost(post)
+    .subscribe((data:any) => {
+      console.log(data.result);
+    })
+  
+    // Swal.fire({
+    //   title: '¿Quieres marcarlo como encontrado?',
+    //   showDenyButton: true,
+    //   confirmButtonText: 'Si',
+    //   denyButtonText: `No`,
+    //   confirmButtonColor : '#16697A',
+    //   denyButtonColor: '#FFA62B'
+    // }).then((result) => {
+    //   /* Read more about isConfirmed, isDenied below */
+    //   if (result.isConfirmed) {
+    //     Swal.fire({
+    //       title: '¡Encontrado!',
+    //       icon: 'success',
+    //       confirmButtonColor : '#16697A'
+    //     })
         
-  //     } else if (result.isDenied) {
-  //       Swal.fire({
-  //         title: 'No hay cambios',
-  //         icon: 'info',
-  //         confirmButtonColor : '#16697A'
-  //       })
-  //       this.found = false
-  //     }
-  //   })
-  // }
+    //   } else if (result.isDenied) {
+    //     Swal.fire({
+    //       title: 'No hay cambios',
+    //       icon: 'info',
+    //       confirmButtonColor : '#16697A'
+    //     })
+    //   }
+    // })
+  }
   
 
 }

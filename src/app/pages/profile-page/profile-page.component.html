@@ -22,7 +22,12 @@
         
         <ng-container *ngFor="let card of cardsUser">
 
-            <app-card-post [post] = 'card' (id_post) = 'deletePost($event)'></app-card-post>
+            <app-card-post 
+            [post] = 'card'
+            (id_post) = 'deletePost($event)' 
+            (change_view) = 'changeView($event)'
+            (close_view) = 'closeView($event)'>
+            </app-card-post>
         
         </ng-container>    
     
