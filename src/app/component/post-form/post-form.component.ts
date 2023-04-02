@@ -32,10 +32,9 @@ export class PostFormComponent {
     })
   }
    //PUBLICAR
-   postCardPost(id_user) {
+   postCardPost() {
     this.card = this.postForm.value;
-    id_user=this.userService.user.id_user
-    this.postCardService.postCardPost(new CardPost(0,id_user,this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found))
+    this.postCardService.postCardPost(new CardPost(0,this.userService.user.id_user,this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found, this.userService.user.user_name, this.userService.user.user_image))
       .subscribe((data: any) => {
         console.log(data)
         this.postCardService.cards = data.result
@@ -52,10 +51,9 @@ export class PostFormComponent {
  
  
   //ACTUALIZAR
-  editCardPost(id_user) {
+  editCardPost() {
     this.card = this.postForm.value;
-    id_user=this.userService.user.id_user
-    this.postCardService.putCardPost(new CardPost(0,id_user,this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found))
+    this.postCardService.putCardPost(this.card)
       .subscribe((data: any) => {
         console.log(data)
         this.postCardService.cards = data.result
