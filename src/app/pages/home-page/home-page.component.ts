@@ -20,7 +20,8 @@ export class HomePageComponent {
   showCardsPosts() {
     this.postCardService.getCardPosts()
     .subscribe((data:any) => {
-
+     console.log(data.result)
+      
      this.cards = data.result
      
     })

@@ -2,7 +2,7 @@
 
     <div class="image-post">
         <img src="{{post.url_post}}" alt="{{post.description}}" class="imgCard">
-        <div class="icons-post">
+        <div class="icons-post" *ngIf="id_userLogging && id_userLogging === post.id_user">
             <i class="fa-regular fa-circle-xmark icon" (click)="closeBigCard(this.view)" *ngIf="currentUrl === '/mi-perfil'"></i>
             <i class="fa-regular fa-circle-check icon" 
             (click)="checkFoundPost({found: 1, id_post:post.id_post})"></i>

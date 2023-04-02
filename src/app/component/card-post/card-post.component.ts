@@ -16,10 +16,8 @@ export class CardPostComponent {
   public card:CardPost
   public currentUrl:string
   public view:boolean
-  public found:boolean
-  public elementFound:CardPost
-  public viewHeaderPost:boolean
-  public user:User
+  public logging:boolean
+  public id_userLogging:number
 
   @Input() post :CardPost
   @Output() id_post = new EventEmitter<number>
@@ -30,8 +28,11 @@ export class CardPostComponent {
   constructor(private router:Router, public postCardService:PostCardService, public userService:UserService) {
 
     this.currentUrl = this.router.url
-    this.viewHeaderPost = true    
-    
+    this.logging = this.userService.logueado 
+    if (this.userService.user !== null) {
+      this.id_userLogging = this.userService.user.id_user    
+    }
+      
   }
 
   getIdPostToDelete(value:number){
