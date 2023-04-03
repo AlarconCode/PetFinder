@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailService } from 'src/app/shared/email.service';
 
 
 
@@ -12,15 +14,44 @@ import { Location } from '@angular/common';
 })
 export class ContactPageComponent {
 
-  constructor(public router: Router, private location:Location){}
+  public contactForm: FormGroup;
 
-  goBack(){
+  constructor(public router: Router, private location: Location, private fb: FormBuilder, private contact: EmailService) {
+    this.buildForm()
+  }
+
+  onSubmit(FormData) {
+    this.contact.PostMessage(FormData)
+      .subscribe(response => {
+        location.href = 'https://mailthis.to/confirm'
+      }, error => {
+        console.warn(error.responseText)
+        console.log({ error })
+      })
+  }
+  
+  //Funcion para ir atras, boton
+  goBack() {
     this.location.back();
   }
 
+  //Validaciones
+  private buildForm() {
+
+    this.contactForm = this.fb.group({
+      contact_name: [, Validators.required],
+      contact_email: [, [Validators.required, Validators.email]],
+      contact_message: [, Validators.required]
+    })
+  }
+
+
+ 
+
+
 
   buttonSendMailContact() {
-    
+
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -33,7 +64,7 @@ export class ContactPageComponent {
       },
       color: '#16697A'
     })
-    
+
     Toast.fire({
       icon: 'success',
       title: 'Enviado correctamente'

@@ -2,22 +2,32 @@
     <a class="icon-container" >
         <img id="icon-back" src="../../../assets/icons/icon-back-forms2.svg" alt="icono para ir al feed" (click)="goBack()">
     </a>
-    <form>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit(FormData.value)">
         <h1 class="title">Contactar</h1>
     <div class="mb-3">
-        <input type="text" class="form-control" id="formInput" placeholder="Nombre">
+        <input type="text" class="form-control" id="formInput" placeholder="Nombre" formControlName="contact_name"
+        [ngClass]="{'is-invalid': (regForm.get('contact_name').dirty || regForm.get('contact_name').touched) && !regForm.get('contact_name').valid}">
+        <div *ngIf="!regForm.get('contact_name').valid" class="invalid-feedback">
+            El nombre es obligatorio
     </div>
     <div class="mb-3">
-        <input type="email" class="form-control" id="formInput" placeholder="e-mail">
+        <input type="email" class="form-control" id="formInput" placeholder="e-mail" formControlName="contact_email"
+        [ngClass]="{'is-invalid': (regForm.get('contact_email').dirty || regForm.get('contact_email').touched) && !regForm.get('contact_email').valid}">
+        <div *ngIf="!regForm.get('contact_email').valid" class="invalid-feedback">
+            El email es obligatorio
     </div>
     <div class="mb-3">
         <input type="text" class="form-control" id="formInput" placeholder="Teléfono">
     </div>
     <div class="mb-3">
-        <textarea class="form-control styleTextArea" id="FormControlTextarea1" rows="5" placeholder="Comentarios"></textarea>
+        <textarea class="form-control styleTextArea" id="FormControlTextarea1" rows="5" placeholder="Comentarios" formControlName="contact_message"
+        [ngClass]="{'is-invalid': (regForm.get('contact_message').dirty || regForm.get('contact_message').touched) && !regForm.get('contact_message').valid}">
+            <div *ngIf="!regForm.get('contact_message').valid" class="invalid-feedback">
+                Escribe un mensaje</textarea>
     </div>
     <div class="btnContainer">
-        <button class="btn petButton" (click)="buttonSendMailContact()">Enviar</button>
+        <!-- <button type="submit" class="btn petButton" (click)="buttonSendMailContact()" [disabled]="!FormData.valid">Enviar</button> -->
+        <button type="submit" class="btn petButton" [disabled]="!FormData.valid">Enviar</button>
     </div>
     </form>
     
