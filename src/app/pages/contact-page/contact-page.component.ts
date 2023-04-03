@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmailService } from 'src/app/shared/email.service';
+
 
 
 
@@ -16,19 +16,10 @@ export class ContactPageComponent {
 
   public contactForm: FormGroup;
 
-  constructor(public router: Router, private location: Location, private fb: FormBuilder, private contact: EmailService) {
+  constructor(public router: Router, private location: Location, private fb: FormBuilder) {
     this.buildForm()
   }
 
-  onSubmit(FormData) {
-    this.contact.PostMessage(FormData)
-      .subscribe(response => {
-        location.href = 'https://mailthis.to/confirm'
-      }, error => {
-        console.warn(error.responseText)
-        console.log({ error })
-      })
-  }
   
   //Funcion para ir atras, boton
   goBack() {
