@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { MessageService } from 'src/app/shared/message.service';
 
 
 
@@ -14,9 +14,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactPageComponent {
 
-  public contactForm: FormGroup;
+  public contactFormm: FormGroup;
 
-  constructor(public router: Router, private location: Location, private fb: FormBuilder) {
+  constructor(public router: Router, private location: Location, private fb: FormBuilder, public _MessageService:MessageService) {
     this.buildForm()
   }
 
@@ -29,19 +29,24 @@ export class ContactPageComponent {
   //Validaciones
   private buildForm() {
 
-    this.contactForm = this.fb.group({
+    this.contactFormm = this.fb.group({
       contact_name: [, Validators.required],
       contact_email: [, [Validators.required, Validators.email]],
       contact_message: [, Validators.required]
     })
   }
 
+  //send email
+  public contactForm(contactFormm){
 
- 
+    this._MessageService.sendMessage(contactFormm).subscribe(() => {
+      Swal.fire("Formulario de contacto", "Mensaje enviado correctamente", "success");
+      });
+      }
 
+  //yo creo que la function de arriba (contactFrom) deberia de ir metida dentro de buttonsenmailcontact
 
-
-  buttonSendMailContact() {
+buttonSendMailContact() {
 
     const Toast = Swal.mixin({
       toast: true,
