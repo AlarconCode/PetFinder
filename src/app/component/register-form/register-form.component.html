@@ -29,7 +29,7 @@
     
     <div class="mb-3">
         <select class="form-select" aria-label="Default select example" formControlName="user_location" [ngClass]="{'is-invalid': (regForm.get('user_location').dirty || regForm.get('user_location').touched) && !regForm.get('user_location').valid}">
-            <option selected>Elige Provincia</option>
+            <option selected value="" placeholder="Elige Provincia">Elige Provincia</option>
             <option value="Álava/Araba">Álava/Araba</option>
             <option value="Albacete">Albacete</option>
             <option value="Alicante">Alicante</option>
