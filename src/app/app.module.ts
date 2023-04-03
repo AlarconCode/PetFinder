@@ -21,6 +21,7 @@ import { PublicProfilePageComponent } from './pages/public-profile-page/public-p
 import { UpdateRegisterPageComponent } from './pages/update-register-page/update-register-page.component';
 import { RegisterFormComponent } from './component/register-form/register-form.component';
 import { CardPostComponent } from './component/card-post/card-post.component';
+import { EmailService } from './shared/email.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { CardPostComponent } from './component/card-post/card-post.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
