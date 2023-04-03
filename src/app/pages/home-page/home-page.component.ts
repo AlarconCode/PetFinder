@@ -25,9 +25,10 @@ export class HomePageComponent {
     this.cards = this.cards.filter(card => card.user_name === value)
     this.status = !this.status
   }
-
+  
   cleanFilter() {
     this.showCardsPosts()
+    this.status = !this.status
   }
 
   goToFilter() {
