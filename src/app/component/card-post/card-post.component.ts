@@ -31,7 +31,7 @@ export class CardPostComponent {
     this.logging = this.userService.logueado 
     if (this.userService.user !== null) {
       this.id_userLogging = this.userService.user.id_user    
-    }
+    }   
       
   }
 
@@ -60,32 +60,40 @@ export class CardPostComponent {
     this.postCardService.putCardPost(post)
     .subscribe((data:any) => {
       console.log(data.result);
+
+      Swal.fire({
+        title: '¿Quieres marcarlo como encontrado?',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+        confirmButtonColor : '#16697A',
+        denyButtonColor: '#FFA62B'
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: '¡Encontrado!',
+            icon: 'success',
+            confirmButtonColor : '#16697A'
+          })
+          
+        } else if (result.isDenied) {
+          Swal.fire({
+            title: 'No hay cambios',
+            icon: 'info',
+            confirmButtonColor : '#16697A'
+          })
+        }
+      })
+
     })
   
-    // Swal.fire({
-    //   title: '¿Quieres marcarlo como encontrado?',
-    //   showDenyButton: true,
-    //   confirmButtonText: 'Si',
-    //   denyButtonText: `No`,
-    //   confirmButtonColor : '#16697A',
-    //   denyButtonColor: '#FFA62B'
-    // }).then((result) => {
-    //   /* Read more about isConfirmed, isDenied below */
-    //   if (result.isConfirmed) {
-    //     Swal.fire({
-    //       title: '¡Encontrado!',
-    //       icon: 'success',
-    //       confirmButtonColor : '#16697A'
-    //     })
-        
-    //   } else if (result.isDenied) {
-    //     Swal.fire({
-    //       title: 'No hay cambios',
-    //       icon: 'info',
-    //       confirmButtonColor : '#16697A'
-    //     })
-    //   }
-    // })
+    
+  }
+
+  convertDate(date:Date) {
+    let fecha = new Date(date)
+    return fecha.toLocaleDateString('es-ES')
   }
 
 

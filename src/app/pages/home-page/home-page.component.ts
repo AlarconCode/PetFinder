@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CardPost } from '../../models/card-post';
 import { PostCardService } from '../../shared/post-card.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home-page',
@@ -51,7 +52,15 @@ export class HomePageComponent {
     .subscribe((data:any) => {
       console.log(data.result);
       this.cards = this.cards.filter(card => card.id_post !== id_post)
-      
+
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Eliminado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
     })
   }
 }

@@ -4,6 +4,7 @@ import { CardPost } from 'src/app/models/card-post';
 import { User } from 'src/app/models/user';
 import { PostCardService } from 'src/app/shared/post-card.service';
 import { UserService } from 'src/app/shared/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile-page',
@@ -34,7 +35,16 @@ export class ProfilePageComponent {
     .subscribe((data:any) => {
       console.log(data.result);
       this.cardsUser = this.cardsUser.filter(card => card.id_post !== id_post)
-      this.cardsUser = this.showCardsByIdUser()  
+      this.cardsUser = this.showCardsByIdUser()
+
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Eliminado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
     })
   }
 
