@@ -1,3 +1,66 @@
 .main {
     margin-top: 55px;
+    position: relative;
+}
+
+div.form-check {
+    z-index: 10;
+    position: fixed;
+    left: 87%;
+    top: 15px;
+}
+
+div.my_modal{
+    position: fixed;
+    z-index: 10;
+    opacity: 0.9;
+    background-color: var(--grey);
+    width: 100%;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid var(--yellow);
+    display: flex;
+    flex-direction: column;
+}
+
+div.my_modal select {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.form-check-input:checked[type=checkbox] {
+    background-color: var(--yellow);
+}
+
+.input-group {
+    margin: 15px auto;
+    width: 85%;
+}
+
+.form-outline {
+    width: 75%;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-outline input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.input-group button {
+    width: 25%;
+    background-color: var(--turquoise);
+}
+
+.input-group button img {
+    width: 35%;
+    object-fit: cover;
+}
+
+.petButton {
+    margin: 0 auto !important;
+    background-color: var(--turquoise);
+    width: 70%;
+    color: var(--grey);
+    font-size: var(--h4-size);
 }

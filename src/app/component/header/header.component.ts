@@ -16,11 +16,6 @@ export class HeaderComponent {
     this.status = false
   }
 
-  goToFilter() {
-    this.status = !this.status
-  }
-
-
   goToWelcome() {
     this.router.navigateByUrl('/bienvenida')
   }

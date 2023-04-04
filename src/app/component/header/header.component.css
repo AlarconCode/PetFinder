@@ -3,74 +3,22 @@ header {
     top: 0;
     width: 100%;
     z-index: 10;
+    background-color: var(--turquoise);
 }
 
 div.menu {
-    /* display: flex;
-    justify-content:center;
-    align-items: center;
-    height: 55px;
-    background-color: var(--turquoise); */
     display: flex;
-    justify-content:space-around;
+    justify-content: space-between;
     align-items: center;
     height: 55px;
-    background-color: var(--turquoise);
     gap:55px;
     padding-left: 20px;
+    width: 70%;
 }
 
 .logo-yellow{
  height: 50%;
     align-self: center;
-}
-
-
-.form-check-input:checked[type=checkbox] {
-    background-color: var(--yellow);
-}
-
-.close-myModal {
-    display: none;
-}
-
-div.my_modal{
-    opacity: 0.9;
-    background-color: var(--grey);
-    width: 100%;
-    padding: 20px 0 20px 0;
-    border-bottom: 1px solid var(--yellow);
-}
-
-div.my_modal select {
-    width: 85%;
-    margin: 0 auto;
-}
-
-.input-group {
-    margin: 15px auto;
-    width: 85%;
-}
-
-.form-outline {
-    width: 75%;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.form-outline input {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.input-group button {
-    width: 25%;
-    background-color: var(--turquoise);
-}
-
-.input-group button img {
-    width: 35%;
-    object-fit: cover;
 }
 
 .login-boton a{
