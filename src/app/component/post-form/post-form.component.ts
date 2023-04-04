@@ -17,24 +17,28 @@ export class PostFormComponent {
   public card: CardPost;
   public postForm: FormGroup;
   public user: User;
+  public urlCurrent: string;
 
-  constructor(public router: Router, public postCardService: PostCardService, public userService: UserService, private fb:FormBuilder) {
+  constructor(public router: Router, public postCardService: PostCardService, public userService: UserService, private fb: FormBuilder) {
     this.buildForm()
+    this.urlCurrent = this.router.url;
+    this.user = this.userService.user;
+
   }
 
-//Validaciones
+  //Validaciones
   private buildForm() {
-    this.postForm= this.fb.group({
-      post_location:[, Validators.required],
+    this.postForm = this.fb.group({
+      post_location: [, Validators.required],
       post_date: [, [Validators.required]],
       url_post: [, [Validators.required]],
       description: [, [Validators.required]]
     })
   }
-   //PUBLICAR
-   postCardPost() {
+  //PUBLICAR
+  postCardPost() {
     this.card = this.postForm.value;
-    this.postCardService.postCardPost(new CardPost(0,this.userService.user.id_user,this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found, this.userService.user.user_name, this.userService.user.user_image, this.userService.user.email))
+    this.postCardService.postCardPost(new CardPost(0, this.userService.user.id_user, this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found, this.userService.user.user_name, this.userService.user.user_image, this.userService.user.email))
       .subscribe((data: any) => {
         console.log(data)
         this.postCardService.cards = data.result
@@ -48,22 +52,50 @@ export class PostFormComponent {
         this.router.navigateByUrl('/home')
       });
   }
- 
- 
+
+
   //ACTUALIZAR
+  // editCardPost() {
+  //   this.card = this.postForm.value;
+  // console.log(this.card)
+  //   this.postCardService.putCardPost(this.card)
+  //     .subscribe((data: any) => {
+  //       console.log(data)
+  //       this.postCardService.cards = data.result
+  //       Swal.fire({
+  //         position: 'center',
+  //         icon: 'success',
+  //         title: '¡Actualizada correctamente!',
+  //         showConfirmButton: false,
+  //         timer: 1500
+  //       });
+  //       this.router.navigateByUrl('/home')
+  //     });
+  // }
+
   editCardPost() {
     this.card = this.postForm.value;
+    console.log(this.card)
     this.postCardService.putCardPost(this.card)
       .subscribe((data: any) => {
         console.log(data)
-        this.postCardService.cards = data.result
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: '¡Actualizada correctamente!',
-          showConfirmButton: false,
-          timer: 1500
-        });
+        if (data.result.warningStatus == 0) {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: '¡Actualizada correctamente!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        } else {
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: '¡Error al actualizar!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
         this.router.navigateByUrl('/home')
       });
   }
