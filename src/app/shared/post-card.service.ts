@@ -10,6 +10,8 @@ export class PostCardService {
 
   private url: string
   public cards: CardPost[]
+  public emailUser:string
+  public userName:string
 
   constructor(private http: HttpClient) {
     this.url = `http://localhost:5000`;

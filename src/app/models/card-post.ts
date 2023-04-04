@@ -9,8 +9,9 @@ export class CardPost {
     public found:string
     public user_name:string
     public user_image:string
+    public email:string
     
-    constructor(id_post:number, id_user:number, post_location:string, url_post:string, description:string, post_date:string, found:string, user_name:string, user_image:string) {
+    constructor(id_post:number, id_user:number, post_location:string, url_post:string, description:string, post_date:string, found:string, user_name:string, user_image:string, email:string) {
         
         this.id_post = id_post
         this.id_user = id_user
@@ -21,6 +22,7 @@ export class CardPost {
         this.found = found
         this.user_name = user_name
         this.user_image = user_image
+        this.email = email
 
     }
 }

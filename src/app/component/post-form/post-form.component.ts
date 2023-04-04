@@ -34,7 +34,7 @@ export class PostFormComponent {
    //PUBLICAR
    postCardPost() {
     this.card = this.postForm.value;
-    this.postCardService.postCardPost(new CardPost(0,this.userService.user.id_user,this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found, this.userService.user.user_name, this.userService.user.user_image))
+    this.postCardService.postCardPost(new CardPost(0,this.userService.user.id_user,this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found, this.userService.user.user_name, this.userService.user.user_image, this.userService.user.email))
       .subscribe((data: any) => {
         console.log(data)
         this.postCardService.cards = data.result

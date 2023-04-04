@@ -49,8 +49,10 @@ export class CardPostComponent {
     this.view = !this.view
   }
 
-  goToContactForm() {
+  goToContactForm(email:string, nameUser:string) {
     this.router.navigateByUrl('contacto')
+    this.postCardService.emailUser = email
+    this.postCardService.userName = nameUser
   }
 
 
