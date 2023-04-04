@@ -55,6 +55,39 @@ export class CardPostComponent {
     this.postCardService.userName = nameUser
   }
 
+  checkFoundPost(post:CardPost) {
+    console.log(post.found);
+    this.postCardService.putCardPost(post)
+    .subscribe((data:any) => {
+      console.log(data.result);
+    })
+  
+    // Swal.fire({
+    //   title: '¿Quieres marcarlo como encontrado?',
+    //   showDenyButton: true,
+    //   confirmButtonText: 'Si',
+    //   denyButtonText: `No`,
+    //   confirmButtonColor : '#16697A',
+    //   denyButtonColor: '#FFA62B'
+    // }).then((result) => {
+    //   /* Read more about isConfirmed, isDenied below */
+    //   if (result.isConfirmed) {
+    //     Swal.fire({
+    //       title: '¡Encontrado!',
+    //       icon: 'success',
+    //       confirmButtonColor : '#16697A'
+    //     })
+        
+    //   } else if (result.isDenied) {
+    //     Swal.fire({
+    //       title: 'No hay cambios',
+    //       icon: 'info',
+    //       confirmButtonColor : '#16697A'
+    //     })
+    //   }
+    // })
+  }
+
 
   editPost() {
     this.router.navigateByUrl('/actualizar-publicacion')
