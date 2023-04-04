@@ -48,8 +48,8 @@ export class ContactPageComponent {
 
   buttonSendMailContact() {
     let contactForm = this.contactForm.value;
-    this._MessageService.sendMessage(contactForm).subscribe(() => {
-
+    this._MessageService.sendMessage(contactForm).subscribe((data:any) => {
+      console.log(data)
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
