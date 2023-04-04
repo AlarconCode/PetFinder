@@ -32,6 +32,7 @@ export class ContactPageComponent {
     this.contactForm = this.fb.group({
       contact_name: [, Validators.required],
       contact_email: [, [Validators.required, Validators.email]],
+      contact_phone: [, Validators.required],
       contact_message: [, Validators.required]
     })
   }
