@@ -14,7 +14,7 @@ import { MessageService } from 'src/app/shared/message.service';
 })
 export class ContactPageComponent {
 
-  public contactFormm: FormGroup;
+  public contactForm: FormGroup;
 
   constructor(public router: Router, private location: Location, private fb: FormBuilder, public _MessageService:MessageService) {
     this.buildForm()
@@ -29,7 +29,7 @@ export class ContactPageComponent {
   //Validaciones
   private buildForm() {
 
-    this.contactFormm = this.fb.group({
+    this.contactForm = this.fb.group({
       contact_name: [, Validators.required],
       contact_email: [, [Validators.required, Validators.email]],
       contact_message: [, Validators.required]
@@ -37,9 +37,9 @@ export class ContactPageComponent {
   }
 
   //send email
-  public contactForm(contactFormm){
-
-    this._MessageService.sendMessage(contactFormm).subscribe(() => {
+  public contactFormm(contactForm){
+    contactForm=this.contactForm.value
+    this._MessageService.sendMessage(contactForm).subscribe(() => {
       Swal.fire("Formulario de contacto", "Mensaje enviado correctamente", "success");
       });
       }
