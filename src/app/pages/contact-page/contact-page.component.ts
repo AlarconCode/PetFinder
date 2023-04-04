@@ -38,8 +38,8 @@ export class ContactPageComponent {
   }
 
   //send email
-  // public contactFormm(contactForm) {
-  //   // contactForm = this.contactForm.value;
+  // public contactFormm(formulario) {
+  //   
   //   this._MessageService.sendMessage(contactForm).subscribe(() => {
   //     Swal.fire("Formulario de contacto", "Mensaje enviado correctamente", "success");
   //   });
