@@ -25,6 +25,7 @@
                 <!--  -->
             <div *ngIf="!contactForm.get('contact_email').valid" class="invalid-feedback">
                 <div *ngIf="contactForm.get('contact_email').errors.required">Introduce tu email, por favor</div>
+                <div *ngIf="contactForm.get('contact_email').errors.email">el email no es válido</div>
             </div>
 
             <!-- TELEFONO -->

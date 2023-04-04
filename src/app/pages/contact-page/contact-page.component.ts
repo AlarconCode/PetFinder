@@ -16,11 +16,11 @@ export class ContactPageComponent {
 
   public contactForm: FormGroup;
 
-  constructor(public router: Router, private location: Location, private fb: FormBuilder, public _MessageService:MessageService) {
+  constructor(public router: Router, private location: Location, private fb: FormBuilder, public _MessageService: MessageService) {
     this.buildForm()
   }
 
-  
+
   //Funcion para ir atras, boton
   goBack() {
     this.location.back();
@@ -38,36 +38,39 @@ export class ContactPageComponent {
   }
 
   //send email
-  public contactFormm(contactForm){
-    contactForm=this.contactForm.value
+  // public contactFormm(contactForm) {
+  //   // contactForm = this.contactForm.value;
+  //   this._MessageService.sendMessage(contactForm).subscribe(() => {
+  //     Swal.fire("Formulario de contacto", "Mensaje enviado correctamente", "success");
+  //   });
+  // }
+
+
+  buttonSendMailContact() {
+    let contactForm = this.contactForm.value;
     this._MessageService.sendMessage(contactForm).subscribe(() => {
-      Swal.fire("Formulario de contacto", "Mensaje enviado correctamente", "success");
-      });
-      }
 
-  //yo creo que la function de arriba (contactFrom) deberia de ir metida dentro de buttonsenmailcontact
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        },
+        color: '#16697A'
+      })
 
-buttonSendMailContact() {
+      Toast.fire({
+        icon: 'success',
+        title: 'Enviado correctamente'
+      })
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      },
-      color: '#16697A'
+      this.router.navigateByUrl('/home')
+
     })
-
-    Toast.fire({
-      icon: 'success',
-      title: 'Enviado correctamente'
-    })
-
-    this.router.navigateByUrl('/home')
-
   }
+
 }
