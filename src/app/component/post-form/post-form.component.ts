@@ -19,7 +19,9 @@ export class PostFormComponent {
   public user: User;
 
   constructor(public router: Router, public postCardService: PostCardService, public userService: UserService, private fb:FormBuilder) {
-    this.buildForm()
+    
+    this.buildForm()  
+  
   }
 
 //Validaciones
@@ -52,7 +54,7 @@ export class PostFormComponent {
  
   //ACTUALIZAR
   editCardPost() {
-    this.card = this.postForm.value;
+    
     this.postCardService.putCardPost(this.card)
       .subscribe((data: any) => {
         console.log(data)

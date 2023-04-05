@@ -12,10 +12,12 @@ export class PostCardService {
   public cards: CardPost[]
   public emailUser:string
   public userName:string
+  public cardsUser:CardPost[]
 
   constructor(private http: HttpClient) {
     this.url = `http://localhost:5000`;
     this.cards = [];
+    this.cardsUser = []
   }
 
   getCardPosts() {

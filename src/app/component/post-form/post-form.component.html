@@ -1,7 +1,6 @@
 
-    <form [formGroup]="postForm" class="post-form">
-        <h1 class="title" *ngIf="router.url === '/publicar'">Publicar</h1>
-        <h1 class="title" *ngIf="router.url === '/actualizar-publicacion'">Actualizar</h1>
+    <form [formGroup]="postForm" class="post-form" *ngIf="router.url === '/publicar'">
+        <h1 class="title">Publicar</h1>
     <div class="mb-3">
         <select class="form-select" id="locationInput" aria-label="Default select example" formControlName="post_location"
         [ngClass]="{'is-invalid': (postForm.get('post_location').dirty || postForm.get('post_location').touched) && !postForm.get('post_location').valid}">
@@ -93,5 +92,102 @@
         
     </div>
     </form>
+
+    <form [formGroup]="postForm" class="post-form" *ngIf="router.url === '/actualizar-publicacion'">
+        <h1 class="title">Actualizar</h1>
+    <div class="mb-3">
+        <select class="form-select" id="locationInput" aria-label="Default select example" formControlName="post_location" name="post_location" [(ngMOdel)]="card.post_location"
+        [ngClass]="{'is-invalid': (postForm.get('post_location').dirty || postForm.get('post_location').touched) && !postForm.get('post_location').valid}">
+        <div *ngIf="!postForm.get('post_location').valid" class="invalid-feedback">
+            <div *ngIf="router.url === '/publicar' && postForm.get('post_location').errors.required">Introduce la provincia</div>
+        </div>>
+            <option selected>Provincia</option>
+            <option value="Álava/Araba">Álava/Araba</option>
+            <option value="Albacete">Albacete</option>
+            <option value="Alicante">Alicante</option>
+            <option value="Almería">Almería</option>
+            <option value="Asturias">Asturias</option>
+            <option value="Ávila">Ávila</option>
+            <option value="Badajoz">Badajoz</option>
+            <option value="Baleares">Baleares</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Burgos">Burgos</option>
+            <option value="Cáceres">Cáceres</option>
+            <option value="Cádiz">Cádiz</option>
+            <option value="Cantabria">Cantabria</option>
+            <option value="Castellón">Castellón</option>
+            <option value="Ceuta">Ceuta</option>
+            <option value="Ciudad Real">Ciudad Real</option>
+            <option value="Córdoba">Córdoba</option>
+            <option value="Cuenca">Cuenca</option>
+            <option value="Gerona/Girona">Gerona/Girona</option>
+            <option value="Granada">Granada</option>
+            <option value="Guadalajara">Guadalajara</option>
+            <option value="Guipúzcoa/Gipuzkoa">Guipúzcoa/Gipuzkoa</option>
+            <option value="Huelva">Huelva</option>
+            <option value="Huesca">Huesca</option>
+            <option value="Jaén">Jaén</option>
+            <option value="La Coruña/A Coruña">La Coruña/A Coruña</option>
+            <option value="La Rioja">La Rioja</option>
+            <option value="Las Palmas">Las Palmas</option>
+            <option value="León">León</option>
+            <option value="Lérida/Lleida">Lérida/Lleida</option>
+            <option value="Lugo">Lugo</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Málaga">Málaga</option>
+            <option value="Melilla">Melilla</option>
+            <option value="Murcia">Murcia</option>
+            <option value="Navarra">Navarra</option>
+            <option value="Orense/Ourense">Orense/Ourense</option>
+            <option value="Palencia">Palencia</option>
+            <option value="Pontevedra">Pontevedra</option>
+            <option value="Salamanca">Salamanca</option>
+            <option value="Segovia">Segovia</option>
+            <option value="Sevilla">Sevilla</option>
+            <option value="Soria">Soria</option>
+            <option value="Tarragona">Tarragona</option>
+            <option value="Tenerife">Tenerife</option>
+            <option value="Teruel">Teruel</option>
+            <option value="Toledo">Toledo</option>
+            <option value="Valencia">Valencia</option>
+            <option value="Valladolid">Valladolid</option>
+            <option value="Vizcaya/Bizkaia">Vizcaya/Bizkaia</option>
+            <option value="Zamora">Zamora</option>
+            <option value="Zaragoza">Zaragoza</option>
+          </select>
+    </div>
+    <div class="mb-3">
+        <input type="date" class="form-control" id="dateInput" formControlName="post_date" name="post_date" [(ngMOdel)]="card.post_date"
+        [ngClass]="{'is-invalid': (postForm.get('post_date').dirty || postForm.get('post_date').touched) && !postForm.get('post_date').valid}">
+        <div *ngIf="!postForm.get('post_date').valid" class="invalid-feedback">
+            <div *ngIf="router.url === '/publicar' && postForm.get('post_date').errors.required">Es obligatorio introducir la fecha</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="urlInput" placeholder="url imagen" formControlName="url_post" name="url_post" [(ngMOdel)]="card.url_post"
+        [ngClass]="{'is-invalid': (postForm.get('url_post').dirty || postForm.get('url_post').touched) && !postForm.get('url_post').valid}">
+        <div *ngIf="!postForm.get('url_post').valid" class="invalid-feedback">
+            <!-- <div *ngIf="router.url === '/publicar'" *ngIf="postForm.get('url_post').errors.required">Es obligatorio introducir la imagen</div> -->
+            <div *ngIf="router.url === '/publicar' && postForm.get('url_post').errors.required">Es obligatorio introducir la imagen</div>
+
+        </div>
+    </div>
+    <div class="mb-3">
+        <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8" placeholder="Descripción sobre la mascota encontrada" formControlName="description" name="description" [(ngMOdel)]="card.description"
+        [ngClass]="{'is-invalid': (postForm.get('description').dirty || postForm.get('description').touched) && !postForm.get('description').valid}">
+        ></textarea>
+        <div *ngIf="!postForm.get('description').valid" class="invalid-feedback">
+            <div *ngIf="router.url === '/publicar' && postForm.get('description').errors.required">Es obligatorio introducir descripcion</div>
+        </div>
+    </div>
+    <div class="btnContainer">
+        <button type="reset" class="btn postButton" *ngIf="router.url === '/publicar'" (click)="postCardPost()" [disabled]="postForm.invalid">Publicar</button>
+        <button type="reset" class="btn postButton" *ngIf="router.url === '/actualizar-publicacion'" (click)="editCardPost()" [disabled]="postForm.invalid">Actualizar</button>
+        
+    </div>
+    </form>
+
+
+
 
 

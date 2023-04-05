@@ -97,8 +97,12 @@ export class CardPostComponent {
   }
 
 
-  editPost() {
+  editPost(id_post:number) {
     this.router.navigateByUrl('/actualizar-publicacion')
+    this.postCardService.getCardsFromUser(this.userService.user.id_user)
+    .subscribe((data:any) => {
+      this.postCardService.cardsUser = data.result
+    })
   }
 
   
