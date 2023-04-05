@@ -17,7 +17,7 @@ import { PostCardService } from 'src/app/shared/post-card.service';
 })
 export class ContactPageComponent {
 
-  public email:Email
+  // public email:Email
   public contactForm:FormGroup
   constructor(public router: Router, private location:Location, private postCardService: PostCardService, private emailService: EmailService, private fb:FormBuilder){
 
