@@ -105,11 +105,11 @@
 <!-- FORMULARIO ACTUALIZAR: -->
 
 
-<form [formGroup]="postForm" *ngIf="router.url === '/actualizar-publicacion'">
+<form [formGroup]="postForm" class="post-form" *ngIf="router.url === '/actualizar-publicacion'">
     <h1 class="title">Actualizar</h1>
     <div class="mb-3">
         <select class="form-select" id="locationInput" aria-label="Default select example" name="post_location"
-            [(ngModel)]="postCardPost.post_location">
+            [(ngModel)]="postCard.post_location">
 
     <option selected>Provincia</option>
     <option value="Álava/Araba">Álava/Araba</option>
@@ -168,18 +168,18 @@
     </div>
 
     <div class="mb-3">
-        <input type="date" class="form-control" id="dateInput" name="date_post" [(ngModel)]="postCardPost.date_post">
+        <input type="date" class="form-control" id="dateInput" name="date_post" [(ngModel)]="postCard.date_post">
     </div>
 
     <div class="mb-3">
         <input type="text" class="form-control" id="urlInput" placeholder="url imagen" name="url_post"
-            [(ngModel)]="postCardPost.url_post">
+            [(ngModel)]="postCard.url_post">
     </div>
 
     <div class="mb-3">
         <textarea class="form-control styleTextArea" id="PostFormTextarea" rows="8"
             placeholder="Descripción sobre la mascota encontrada" name="description"
-            [(ngModel)]="postCardPost.description"></textarea>
+            [(ngModel)]="postCard.description"></textarea>
     </div>
 
     <div class="btnContainer">

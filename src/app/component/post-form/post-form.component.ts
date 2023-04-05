@@ -76,9 +76,10 @@ export class PostFormComponent {
   editCardPost() {
     this.card = this.postForm.value;
     console.log(this.card)
-    this.postCardService.putCardPost(this.card)
-      .subscribe((data: any) => {
+    this.postCardService.putCardPost(new CardPost(0, this.userService.user.id_user, this.card.post_location, this.card.url_post, this.card.description, this.card.post_date, this.card.found, this.userService.user.user_name, this.userService.user.user_image, this.userService.user.email))
+    .subscribe((data: any) => {
         console.log(data)
+        this.postCardService.cards = data.result
         if (data.result.warningStatus == 0) {
           Swal.fire({
             position: 'top',
