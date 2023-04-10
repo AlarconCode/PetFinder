@@ -20,6 +20,7 @@ export class PostFormComponent {
 
   constructor(public router: Router, public postCardService: PostCardService, public userService: UserService, private fb:FormBuilder) {
     this.buildForm()
+    this.card = this.postCardService.getUpdatePost()
   }
 
 //Validaciones

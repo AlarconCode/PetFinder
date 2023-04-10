@@ -120,7 +120,7 @@
     </div>
     
     <div class="mb-3">
-        <input type="text" class="form-control" id="formInput" placeholder="password" formControlName="password" name="password" [(ngModel)]="user.password"
+        <input type="password" class="form-control" id="formInput" placeholder="password" formControlName="password" name="password" [(ngModel)]="user.password"
         [ngClass]="{'is-invalid': (regForm.get('password').dirty || regForm.get('password').touched) && !regForm.get('password').valid}">
         <div *ngIf="!regForm.get('password').valid" class="invalid-feedback">
             <div *ngIf="regForm.get('password').errors.required">Es obligatorio introducir password</div>
