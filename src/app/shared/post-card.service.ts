@@ -12,6 +12,7 @@ export class PostCardService {
   public cards: CardPost[]
   public emailUser:string
   public userName:string
+  private updatePost:CardPost
 
   constructor(private http: HttpClient) {
     this.url = `http://localhost:5000`;
@@ -36,6 +37,14 @@ export class PostCardService {
 
   deleteCardPost(id_post:number) {
     return this.http.delete(this.url + '/posts', {body:{id_post:id_post}})
+  }
+
+  getUpdatePost() {
+    return this.updatePost
+  }
+
+  setUpdatePost(post:CardPost) {
+    this.updatePost = post
   }
 
 }

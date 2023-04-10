@@ -97,7 +97,8 @@ export class CardPostComponent {
   }
 
 
-  editPost() {
+  editPost(post:CardPost) {
+    this.postCardService.setUpdatePost(post)
     this.router.navigateByUrl('/actualizar-publicacion')
   }
 

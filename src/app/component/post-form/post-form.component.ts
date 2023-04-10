@@ -53,7 +53,12 @@ export class PostFormComponent {
   //ACTUALIZAR
   editCardPost() {
     this.card = this.postForm.value;
-    this.postCardService.putCardPost(this.card)
+    this.postCardService.getUpdatePost().post_location = this.card.post_location
+    this.postCardService.getUpdatePost().post_date = this.card.post_date
+    this.postCardService.getUpdatePost().url_post = this.card.url_post
+    this.postCardService.getUpdatePost().description = this.card.description
+
+    this.postCardService.putCardPost(this.postCardService.getUpdatePost())
       .subscribe((data: any) => {
         console.log(data)
         this.postCardService.cards = data.result

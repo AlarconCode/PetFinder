@@ -7,7 +7,7 @@
             <i class="fa-regular fa-circle-check icon" 
             (click)="checkFoundPost({found: 1, id_post:post.id_post})"></i>
             <i class="fa-solid fa-trash-can icon" (click)="getIdPostToDelete(post.id_post)"></i>
-            <i class="fa-solid fa-pen-to-square icon" (click)="editPost()"></i>
+            <i class="fa-solid fa-pen-to-square icon" (click)="editPost(post)"></i>
         </div>
         <img src="../../../assets/img/Sello_Encontrado.png" alt="Mascota encontrada" *ngIf="post.found === 1" class="encontrado">    
     </div>
