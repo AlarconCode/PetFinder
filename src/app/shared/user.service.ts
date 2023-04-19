@@ -17,7 +17,7 @@ export class UserService {
     this.arrUsers = []
     this.logueado = false;
     this.user = null;
-    this.url = `https://api-rest-pet-finder-alarconcode.vercel.app/`
+    this.url = `https://api-rest-pet-finder-git-main-alarconcode.vercel.app/`
   }
 
   userRegister(user:User) {
