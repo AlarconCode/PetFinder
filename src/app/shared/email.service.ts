@@ -11,7 +11,7 @@ export class EmailService {
   constructor(private http:HttpClient) {}
 
   mailer(email:Email) {
-    return this.http.post(`http://localhost:5000/email`, email )
+    return this.http.post(`https://api-rest-pet-finder-alarconcode.vercel.app/email`, email )
   }
 
 }
