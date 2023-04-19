@@ -15,7 +15,7 @@ export class PostCardService {
   private updatePost:CardPost
 
   constructor(private http: HttpClient) {
-    this.url = `https://api-rest-pet-finder-git-main-alarconcode.vercel.app/`;
+    this.url = `https://api-rest-pet-finder-git-main-alarconcode.vercel.app`;
     this.cards = [];
   }
 
