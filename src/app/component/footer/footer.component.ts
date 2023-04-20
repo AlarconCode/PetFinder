@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
+// 
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-footer',
@@ -25,6 +27,14 @@ export class FooterComponent {
       this.router.navigateByUrl('/publicar')
     } else {
       this.router.navigateByUrl('/registro')
+      // 
+      Swal.fire({
+        position: 'top',
+        icon: 'warning',
+        title: 'Tienes que registrate para publicar',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 
