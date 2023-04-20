@@ -33,3 +33,11 @@ input {
     font-size: var(--h4-size);
 }
 
+
+
+.text-link-login {
+    color: var(--yellow);
+    text-decoration: underline;
+    font-size: var(--p-size);
+    font-weight: 600;
+}

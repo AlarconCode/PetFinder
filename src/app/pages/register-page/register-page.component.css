@@ -5,19 +5,3 @@
 
 }
 
-.toLogin {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 20px;
-}
-
-.text-link-login {
-    color: var(--yellow);
-    text-decoration: underline;
-    font-size: var(--p-size);
-    font-weight: 600;
-    position:absolute;
-}
