@@ -33,7 +33,7 @@ input {
     font-size: var(--h4-size);
 }
 
-.toLogin {
+/* .toLogin {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,4 +47,4 @@ input {
     text-decoration: underline;
     font-size: var(--p-size);
     font-weight: 600;
-}
+} */
