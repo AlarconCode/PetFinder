@@ -29,7 +29,7 @@ export class FooterComponent {
       this.router.navigateByUrl('/registro')
       // 
       Swal.fire({
-        position: 'top',
+        position: 'center',
         icon: 'warning',
         title: 'Tienes que registrate para publicar',
         showConfirmButton: false,
