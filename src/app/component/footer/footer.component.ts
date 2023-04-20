@@ -20,4 +20,12 @@ export class FooterComponent {
     }
   }
 
+  goToPostForm(){
+    if (this.userService.logueado) {
+      this.router.navigateByUrl('/publicar')
+    } else {
+      this.router.navigateByUrl('/registro')
+    }
+  }
+
 }
