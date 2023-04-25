@@ -64,3 +64,8 @@ div.my_modal select {
     color: var(--grey);
     font-size: var(--h4-size);
 }
+
+.divider{
+    width: 100%;
+    height: 50px;
+}
