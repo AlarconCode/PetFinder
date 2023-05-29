@@ -5,7 +5,7 @@
     <img class="logo" src="../../../assets/img/Logo-PetFinder-2colores-1200x900.png" alt="Logotipo PetFinder">
 
     <div class="mb-3">
-        <input type="email" class="form-control" placeholder="e-mail" id="formGroupExampleInput" formControlName="email"
+        <input type="email" class="form-control" placeholder="e-mail" id="formInput-emailLogin" formControlName="email"
             [ngClass]="{'is-invalid': (loginForm.get('email').dirty || loginForm.get('email').touched) && !loginForm.get('email').valid}">
         <!--  -->
         <div *ngIf="!loginForm.get('email').valid" class="invalid-feedback">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="mb-3">
-        <input type="password" class="form-control" placeholder="**********" id="formGroupExampleInput"
+        <input type="password" class="form-control" placeholder="**********" id="formInput-passwordLogin"
             formControlName="password"
             [ngClass]="{'is-invalid': (loginForm.get('password').dirty || loginForm.get('password').touched) && !loginForm.get('password').valid}">
         <!--  -->
