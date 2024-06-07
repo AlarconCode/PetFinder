@@ -17,7 +17,8 @@ export class UserService {
     this.arrUsers = []
     this.logueado = false;
     this.user = null;
-    this.url = `https://api-rest-pet-finder-git-main-alarconcode.vercel.app`
+    // this.url = `http://localhost:4000`
+    this.url = `https://api-rest-pet-finder.vercel.app/`
   }
 
   userRegister(user:User) {
@@ -31,7 +32,7 @@ export class UserService {
 
   }
 
-  login(user: User){
+  login(user: User){    
     return this.http.post(this.url + "/login", user)
   }
 

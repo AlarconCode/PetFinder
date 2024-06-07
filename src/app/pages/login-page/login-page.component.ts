@@ -39,8 +39,9 @@ export class LoginPageComponent {
 
   login() {
     this.user = this.loginForm.value;
-
-    this.userService.login(new User(0, "", this.user.password, this.user.email, "", 0, ''))
+    console.log(this.loginForm.value)
+    console.log(this.user)
+    this.userService.login(this.user)
       .subscribe((data: any) => {
         console.log(data)
         if (data.result[0].password == this.user.password && data.result[0].email == this.user.email) {

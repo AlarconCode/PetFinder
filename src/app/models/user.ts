@@ -4,10 +4,10 @@ export class User {
     public password: string
     public email: string
     public user_location:string
-    public phone: number
+    public phone: string
     public user_image: string
 
-    constructor(id_user: number, user_name: string,password: string,email: string, user_location:string, phone: number, user_image:string){
+    constructor(id_user: number, user_name: string,password: string,email: string, user_location:string, phone: string, user_image:string){
         this.id_user = id_user
         this.user_name = user_name
         this.password = password
