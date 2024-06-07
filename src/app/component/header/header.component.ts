@@ -32,6 +32,7 @@ export class HeaderComponent {
     this.userService.logueado = false;
     this.userService.user = null;
     Swal.fire({title:'Te deslogueaste correctamente', confirmButtonColor : '#16697A'});
+    this.router.navigateByUrl('/bienvenida')
   }
 }
 

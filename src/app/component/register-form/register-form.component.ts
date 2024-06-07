@@ -57,7 +57,7 @@ export class RegisterFormComponent {
     
     console.log(this.user);
     
-    this.router.navigateByUrl('/mi-peril')
+    this.router.navigateByUrl('/mi-perfil')
     this.userService.updateUserData(this.userService.user)
     .subscribe((data:any) => {
       console.log(data)
