@@ -18,7 +18,7 @@ export class UserService {
     this.logueado = false;
     this.user = null;
     // this.url = `http://localhost:4000`
-    this.url = `https://api-rest-pet-finder.vercel.app/`
+    this.url = `https://api-rest-pet-finder.vercel.app`
   }
 
   userRegister(user:User) {

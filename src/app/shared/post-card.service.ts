@@ -16,7 +16,7 @@ export class PostCardService {
 
   constructor(private http: HttpClient) {
     // this.url = `http://localhost:4000`
-    this.url = `https://api-rest-pet-finder.vercel.app/`
+    this.url = `https://api-rest-pet-finder.vercel.app`
     this.cards = [];
   }
 
