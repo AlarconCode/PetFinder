@@ -4,13 +4,17 @@
 
     <div  *ngIf="router.url != '/login'" class="login-boton">
       
-      <a *ngIf="!estaLogueado()"routerLink="/login">Log-in</a>
+      <a *ngIf="!estaLogueado()" routerLink="/login">Login</a>
     
-      <a *ngIf="estaLogueado()" (click)="logout()">Log-out</a>
+      <a *ngIf="estaLogueado()" (click)="logout()">Salir</a>
     
     </div>
     
     <img *ngIf="router.url != '/login'" class="logo-yellow" src="../../../assets/img/Logo-PetFinder-naranja-1700x370.png" alt="Logotipo PetFinder Amarillo" (click)="goToWelcome()">
+
+    <div class="clear">
+
+    </div>
   
   </div>
 

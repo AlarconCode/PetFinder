@@ -1,13 +1,13 @@
 .main {
-    margin-top: 55px;
+    margin-top: 80px;
     position: relative;
 }
 
 div.form-check {
-    z-index: 10;
     position: fixed;
-    left: 87%;
-    top: 15px;
+    z-index: 1000;
+    right: 2%;
+    top: 2%;
 }
 
 div.my_modal{

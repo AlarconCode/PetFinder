@@ -10,10 +10,10 @@ div.menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 55px;
+    height: 80px;
     gap:55px;
-    padding-left: 20px;
-    width: 70%;
+    padding-left: 4%;
+    width: 100%;
 }
 
 .logo-yellow{
@@ -24,4 +24,10 @@ div.menu {
 .login-boton a{
     color: var(--yellow);
     text-decoration: none;
+}
+
+.clear {
+    background-color: var(--turquoise);
+    width: 80px;
+    height: 80px;
 }
